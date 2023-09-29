@@ -3,12 +3,20 @@ import Header from "./Header";
 import NotFound from "./NotFound";
 import { listDecks } from "../utils/api";
 import Study from "./Study";
-import CreateDeck from "./CreateDeck";
+import NewDeck from "./NewDeck";
+import Deck from "./Deck";
 import { Switch, Route, Link } from "react-router-dom";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
 
+  //why no {} with this arrow function
+  // const createNewDeck = (newDeck) =>
+  //   setDecks((currentDecks) => [
+  //     ...currentDecks,
+  //     newDeck,
+  //   ])
+  
   useEffect(() => {
     async function fetchDecks(){
       try {
@@ -18,6 +26,7 @@ function Layout() {
       }
     }
     fetchDecks();
+    // console.log(fetchDecks());
   }, []);
 
   const eachDeck = decks.map((deck) => {
@@ -54,7 +63,10 @@ function Layout() {
             <Study />
           </Route>
           <Route path="/decks/new">
-            <CreateDeck />
+            <NewDeck decks={decks} setDecks={setDecks} />
+          </Route>
+          <Route path="/decks/:deckId">
+            <Deck />
           </Route>
           <Route>
             <NotFound />

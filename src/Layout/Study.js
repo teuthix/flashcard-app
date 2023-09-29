@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { readDeck } from "../utils/api";
-import { Switch, Route, Link, useParams, useRouteMatch } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Study() {
     const param = useParams().deckId;
     const [deck, setDeck] = useState({});
-    const { url } = useRouteMatch();
+    // const { url } = useRouteMatch();
 
     // console.log(param);
     useEffect(() => {
@@ -20,27 +20,43 @@ function Study() {
     }, [param])
 
     console.log(deck);
+    const [flipped, setFlipped] = useState(false);
+    const [numCard, setNumCard] = useState(0);
+    const handleFlip = () => {
+        setFlipped(!flipped);
 
-    const deckStudy = () => {
-        if (deck && deck.cards.length < 3) {
-            return (
-                <>
-                    <h2>Not Enough Cards</h2>
-                    <h6>You need at least 3 cards to study. There are {deck} cards in this deck.</h6>
-                    <button type="button" class="btn btn-primary">+ Add Cards</button>
-                </>
-            )
-        } else {
-            return <h3>Study: {deck.name}</h3>
-        }
     }
 
     return (
         <>
-        <h6><Link to="/">Home</Link> / {deck.name} / Study</h6>
-         {deckStudy}
+            <h6><Link to="/">Home</Link> / {deck.name} / Study</h6>
+            <h3>Study: {deck.name}</h3>
+            <div className="card">
+                    {deck.cards && <h3>Card {numCard + 1} of {deck.cards.length}</h3>}
+                    {deck.cards && flipped === false && <p>{deck.cards[numCard].front}</p>}
+                    {deck.cards && flipped === true && <p>{deck.cards[numCard].back}</p>}
+                    <button type="button" onClick={handleFlip} className="btn btn-secondary">Flip</button>
+                    {flipped === true ? <button 
+                    type="button" 
+                    onClick={() => {
+                        let text;
+                        if(numCard <= deck.cards.length){
+                            setNumCard(numCard+1);
+                            setFlipped(false);
+                        // } else if(numCard > deck.cards.length){
+                        //     if(window.confirm("test") === true ){
+                        //         text = "test working";
+                        //     } else {
+                        //         text = "test also working";
+                        //     }
+                        }
+                    }}
+                    className="btn btn-primary">
+                        Next
+                </button> : ""}
+            </div>
         </>
     )
-  };
+};
 
 export default Study;
