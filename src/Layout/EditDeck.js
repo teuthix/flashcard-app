@@ -1,53 +1,44 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Route, Link, useHistory }  from "react-router-dom";
-import { createDeck } from "../utils/api";
+import React, { useEffect, useState } from "react";
+import { Route, Link, useParams } from "react-router-dom";
+import { updateDeck } from "../utils/api";
 
+function EditDeck({deck, setDeck}) {
+    const param = useParams().deckId;
+    console.log(param);
 
-
-
-// ======= NOT WORKING =========
-
-
-
-
-
-function NewDeck({ decks, setDecks }) {
+    // form empty state
     const initialForm = {
         name: "",
         description: ""
     };
 
-    const history = useHistory();
     const [formData, setFormData] = useState({...initialForm});
 
+    // if theres any change, update the formData
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value, });
     };
-    
-    let newDeckId = useRef(0);
-    useEffect(() => {
-        async function newDeckMaker(formData){
-            try {
-                const newDeck = await createDeck(formData);
-                setDecks({...decks, newDeck});
-                newDeckId.current = newDeck.id;
-                console.log(newDeckId.current);
-            } catch {
-            }
-        }
-        newDeckMaker(formData);
-    }, [formData, setDecks]);
 
     const submitHandler = ( event ) => {
         event.preventDefault();
         // createNewDeck(formData);
-        setFormData(initialForm);
-        history.push(`/decks/${newDeckId.current}`);
+        setFormData(...initialForm)
     };
 
+    useEffect(() => {
+        async function updateIt(param) {
+            try{
+                const response = await updateDeck(param);
+                setDeck(response)
+            } catch {}
+        }
+        updateIt(param)
+        console.log(deck);
+    });
+
     return (
-        <Route path="/decks/new">
-            <h6><Link to="/">Home</Link> / Create Deck</h6>
+        <Route path="/decks/:deckId/edit">
+            <h6><Link to="/">Home</Link> / {deck.name} / Edit Deck</h6>
             <h3>Create Deck</h3>
             <form onSubmit={submitHandler}>
                 <label htmlFor="name">
@@ -56,7 +47,7 @@ function NewDeck({ decks, setDecks }) {
                         id="name"
                         type="text"
                         name="name"
-                        placeholder="Deck Name" 
+                        placeholder={deck.name}
                         value={formData.name}
                         onChange={handleChange}
                     />
@@ -66,7 +57,7 @@ function NewDeck({ decks, setDecks }) {
                     <textarea
                         id="description"
                         name="description"
-                        placeholder="Brief description of the deck"
+                        placeholder={deck.description}
                         value={formData.description}
                         onChange={handleChange}
                     />
@@ -75,9 +66,11 @@ function NewDeck({ decks, setDecks }) {
             <Link to="/">
                 <button type="button" className="btn btn-secondary">Cancel</button>
             </Link>
+            <Link to={`/decks/${param}`}>
                 <button type="submit" className="btn btn-primary">Submit</button>
+            </Link>
         </Route>
     )
 };
 
-export default NewDeck;
+export default EditDeck;

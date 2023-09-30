@@ -17,6 +17,7 @@ function Study() {
             }
         }
         readingDeck(param);
+        // console.log(readingDeck(param));
     }, [param])
 
     console.log(deck);
@@ -39,7 +40,7 @@ function Study() {
                     {flipped === true ? <button 
                     type="button" 
                     onClick={() => {
-                        let text;
+                        // let text;
                         if(numCard <= deck.cards.length){
                             setNumCard(numCard+1);
                             setFlipped(false);
