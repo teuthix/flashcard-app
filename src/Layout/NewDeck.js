@@ -1,16 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Link, useHistory }  from "react-router-dom";
 import { createDeck } from "../utils/api";
 
-
-
-
-// ======= NOT WORKING =========
-
-
-
-
-
+// decks is all decks being rendered from index
 function NewDeck({ decks, setDecks }) {
     const initialForm = {
         name: "",
@@ -19,30 +11,29 @@ function NewDeck({ decks, setDecks }) {
 
     const history = useHistory();
     const [formData, setFormData] = useState({...initialForm});
+    const [submitted, setSubmitted] = useState(false);
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value, });
     };
     
-    let newDeckId = useRef(0);
     useEffect(() => {
         async function newDeckMaker(formData){
-            try {
-                const newDeck = await createDeck(formData);
-                setDecks({...decks, newDeck});
-                newDeckId.current = newDeck.id;
-                console.log(newDeckId.current);
-            } catch {
+            if (submitted) {
+                try {
+                    const newDeck = await createDeck(formData);
+                    setDecks([...decks, newDeck]);
+                    history.push(`/decks/${newDeck.id}`);
+                } catch (error) {
+                }
             }
         }
         newDeckMaker(formData);
-    }, [formData, setDecks]);
+    });
 
     const submitHandler = ( event ) => {
         event.preventDefault();
-        // createNewDeck(formData);
-        setFormData(initialForm);
-        history.push(`/decks/${newDeckId.current}`);
+        setSubmitted(!submitted);
     };
 
     return (
@@ -71,11 +62,11 @@ function NewDeck({ decks, setDecks }) {
                         onChange={handleChange}
                     />
                 </label>
-            </form>
             <Link to="/">
                 <button type="button" className="btn btn-secondary">Cancel</button>
             </Link>
                 <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
         </Route>
     )
 };
