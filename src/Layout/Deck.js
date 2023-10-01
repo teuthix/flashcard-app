@@ -51,9 +51,7 @@ function Deck() {
                     + Add Cards
                 </button>
             </Link>
-            <Link>
                 <button type="button" className="btn btn-danger">Delete</button>
-            </Link>
             <h3>Cards</h3>
             {eachCard}
         </>

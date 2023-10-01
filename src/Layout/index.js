@@ -9,8 +9,6 @@ import { Switch, Route, Link } from "react-router-dom";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-  const [deleteD, setDeleteD] = useState("");
-  const [del, setDel] = useState(false);
 
   //why no {} with this arrow function
   // const createNewDeck = (newDeck) =>
@@ -30,22 +28,18 @@ function Layout() {
     fetchDecks();
     // console.log(fetchDecks());
   }, []);
-
-  // delete works, but won't render afterward
-  useEffect(() => {
-    async function deleting(deleteD){
-      try{
-        const response = await deleteDeck(deleteD);
-        setDecks(response);
-      } catch {}
+  
+  const handleClick = async (event) => {
+    const text = "Delete this deck?\nYou will not be able to recover is.";
+    if(window.confirm(text)) {
+      const deleteId = Number(event.target.id);
+      await deleteDeck(deleteId);
+      const deckies = decks.filter((deck) => {
+        return deck.id !== deleteId;
+      });
+      setDecks([...deckies]);
     }
-    deleting(deleteD);
-  }, [deleteD]);
-
-  const handleClick = (event) => {
-    setDeleteD(event.target.id);
-    setDel(true);
-    console.log(deleteD);
+    // console.log(deleteD);
   };
   
 
