@@ -1,45 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { Route, Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Link, useHistory } from "react-router-dom";
 import { updateDeck } from "../utils/api";
 
 function EditDeck({deck, setDeck}) {
-    const param = useParams().deckId;
-    console.log(param);
-
-    // form empty state
-    const initialForm = {
-        name: "",
-        description: ""
-    };
-
-    const [formData, setFormData] = useState({...initialForm});
+    const [formData, setFormData] = useState({name: deck.name, description: deck.description, id: deck.id, cards: []});
+    const history = useHistory();
 
     // if theres any change, update the formData
     const handleChange = ({ target }) => {
-        setFormData({ ...formData, [target.name]: target.value, });
+        setFormData({ ...formData, [target.name]: target.value });
     };
-
-    const submitHandler = ( event ) => {
+    console.log(deck);
+    
+    const submitHandler = async ( event ) => {
         event.preventDefault();
-        // createNewDeck(formData);
-        setFormData(...initialForm)
+        setDeck({...formData});
+        await updateDeck(deck);
+        // setDecks({...decks, deck});
+        history.push(`/decks/${deck.id}`);
     };
-
-    useEffect(() => {
-        async function updateIt(param) {
-            try{
-                const response = await updateDeck(param);
-                setDeck(response)
-            } catch {}
-        }
-        updateIt(param)
-        console.log(deck);
-    });
 
     return (
         <Route path="/decks/:deckId/edit">
             <h6><Link to="/">Home</Link> / {deck.name} / Edit Deck</h6>
-            <h3>Create Deck</h3>
+            <h3>Edit Deck</h3>
             <form onSubmit={submitHandler}>
                 <label htmlFor="name">
                     Name
@@ -62,13 +46,11 @@ function EditDeck({deck, setDeck}) {
                         onChange={handleChange}
                     />
                 </label>
-            </form>
             <Link to="/">
                 <button type="button" className="btn btn-secondary">Cancel</button>
             </Link>
-            <Link to={`/decks/${param}`}>
                 <button type="submit" className="btn btn-primary">Submit</button>
-            </Link>
+            </form>
         </Route>
     )
 };

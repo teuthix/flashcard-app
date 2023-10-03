@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, Link, useParams } from "react-router-dom";
 import { readDeck } from "../utils/api";
 import EditDeck from "./EditDeck";
+import NewCard from "./NewCard";
 
-function Deck() {
+function Deck({ decks, setDecks }) {
     const param = useParams().deckId;
     const [deck, setDeck] = useState({});
     const [cards, setCards] = useState([]);
@@ -19,7 +20,7 @@ function Deck() {
         }
         readingDeck(param);
         // console.log(deck);
-    }, [param]);
+    }, []);
 
     
     const eachCard = cards.map((eaCard) => {
@@ -64,6 +65,9 @@ function Deck() {
             <Route path="/decks/:deckId/edit">
                 <EditDeck deck={deck} setDeck={setDeck}/>
             </Route>
+        <Route path="/decks/:deckId/cards/new">
+            <NewCard />
+        </Route>
        </Switch>
     )
 };

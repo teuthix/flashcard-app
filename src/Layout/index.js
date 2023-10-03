@@ -80,7 +80,7 @@ function Layout() {
             <NewDeck decks={decks} setDecks={setDecks} />
           </Route>
           <Route path="/decks/:deckId">
-            <Deck />
+            <Deck decks={decks} setDecks={setDecks}/>
           </Route>
           <Route>
             <NotFound />
