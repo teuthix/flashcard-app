@@ -3,8 +3,9 @@ import { Switch, Route, Link, useParams } from "react-router-dom";
 import { readDeck } from "../utils/api";
 import EditDeck from "./EditDeck";
 import NewCard from "./NewCard";
+import CardList from "./CardList";
 
-function Deck({ decks, setDecks }) {
+function Deck() {
     const param = useParams().deckId;
     const [deck, setDeck] = useState({});
     const [cards, setCards] = useState([]);
@@ -20,19 +21,9 @@ function Deck({ decks, setDecks }) {
         }
         readingDeck(param);
         // console.log(deck);
-    }, []);
-
+    }, [param]);
     
-    const eachCard = cards.map((eaCard) => {
-        return (
-            <div className="card" key={eaCard.id}>
-                <div>{eaCard.front}</div>
-                <div>{eaCard.back}</div>
-                <button type="button" className="btn btn-secondary">Edit</button>
-                <button type="button" className="btn btn-danger">Delete</button>
-            </div>
-        )
-      });
+    
       const deckDisplay =  <>
             <h6><Link to="/">Home</Link> / {deck.name}</h6>
             <h4>{deck.name}</h4>
@@ -54,13 +45,13 @@ function Deck({ decks, setDecks }) {
             </Link>
                 <button type="button" className="btn btn-danger">Delete</button>
             <h3>Cards</h3>
-            {eachCard}
         </>
 
     return (
        <Switch>
             <Route exact path="/decks/:deckId">
                 {deckDisplay}
+                <CardList cards={cards} deckId={param} setCards={setCards}/>
             </Route>
             <Route path="/decks/:deckId/edit">
                 <EditDeck deck={deck} setDeck={setDeck}/>

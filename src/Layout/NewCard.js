@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 
 function NewCard(){
@@ -7,40 +7,46 @@ function NewCard(){
         front: "",
         back: "",
     };
-    
+
+    const [deck, setDeck] = useState({cards: []});
     const [newCard, setNewCard] = useState({...initialForm});
-    // const [cardsArray, setCardsArray] = useState([]);
     const decksId = useParams().deckId;
-    const history = useHistory();
     // console.log(decksId);
+
+    // new useState for deck?
+    useEffect(() => {
+        async function fetchDeck(decksId){
+            try{
+                const response = await readDeck(decksId);
+                setDeck(response);
+            } catch {};
+        };
+        fetchDeck(decksId);
+        // console.log(retrieve(decksId));
+    }, [decksId]);
 
     const handleChange = ({target}) => {
         setNewCard({...newCard, [target.name]: target.value});
         // console.log(newCard);
     }
 
-    // new useState for deck?
-    useEffect(() => {
-        async function retrieve(decksId){
-            try{
-                const response = await readDeck(decksId);
-
-            } catch {};
-        };
-        retrieve(decksId);
-        console.log(retrieve(decksId));
-    }, []);
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("we are in the handleSubmit");
+        // console.log("we are in the handleSubmit");
         await createCard(Number(decksId), newCard);
-        history.push(`/decks/${decksId}`);
+        setNewCard({...initialForm});
     };
     
     return (
-        <Route path="/decks/:deckId/cards/new">
-            <h2>{}</h2>
+        <>
+        <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
+                <li className="breadcrumb-item active" aria-current="page">Add Card</li>
+              </ol>
+            </nav>
+            <h3>{deck.name}: Add Card</h3>
         <form onSubmit={handleSubmit}>
             <label htmlFor="front">
                 Front
@@ -62,12 +68,12 @@ function NewCard(){
                     onChange={handleChange}
                 />
             </label>
-            <Link to={`/deck/${decksId}/`}>
+            <Link to={`/decks/${decksId}/`}>
                 <button type="button" className="btn btn-primary">Done</button>
             </Link>
             <button type="submit" className="btn btn-secondary">Save</button>
         </form>
-        </Route>
+        </>
     )
 }
 
