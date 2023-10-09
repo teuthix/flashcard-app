@@ -11,7 +11,6 @@ function NewCard({cards, setCards}){
     const [deck, setDeck] = useState({cards: []});
     const [newCard, setNewCard] = useState({...initialForm});
     const decksId = useParams().deckId;
-    // console.log(decksId);
 
     // new useState for deck?
     useEffect(() => {
@@ -27,7 +26,6 @@ function NewCard({cards, setCards}){
 
     const handleChange = ({target}) => {
         setNewCard({...newCard, [target.name]: target.value});
-        // console.log(newCard);
     }
 
     const handleSubmit = async (event) => {

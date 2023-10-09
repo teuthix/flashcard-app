@@ -21,7 +21,6 @@ function Deck() {
             }
         }
         readingDeck(param);
-        // console.log(deck);
     }, [param]);
     
     

@@ -9,13 +9,6 @@ import { Switch, Route, Link } from "react-router-dom";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
-
-  //why no {} with this arrow function
-  // const createNewDeck = (newDeck) =>
-  //   setDecks((currentDecks) => [
-  //     ...currentDecks,
-  //     newDeck,
-  //   ])
   
   useEffect(() => {
     async function fetchDecks(){
@@ -26,7 +19,6 @@ function Layout() {
       }
     }
     fetchDecks();
-    // console.log(fetchDecks());
   }, []);
   
   const handleClick = async (event) => {
@@ -39,7 +31,6 @@ function Layout() {
       });
       setDecks([...deckies]);
     }
-    // console.log(deleteD);
   };
   
 

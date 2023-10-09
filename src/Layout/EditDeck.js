@@ -10,7 +10,7 @@ function EditDeck({deck, setDeck}) {
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value });
     };
-    console.log(deck);
+    // console.log(deck);
     
     const submitHandler = async ( event ) => {
         event.preventDefault();

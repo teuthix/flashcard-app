@@ -1,11 +1,9 @@
-import { useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readCard, updateCard } from "../utils/api";
 
 function CardEdit({deck, deckId}) {
-    // const deckId = useParams().deckId;
     const cardId = useParams().cardId;
-    // const [deck, setDeck] = useState([]);
     const [card, setCard] = useState([]);
     const history = useHistory();
 
@@ -33,8 +31,6 @@ function CardEdit({deck, deckId}) {
         }
             fetchCard(cardId);
     }, [cardId]);
-        
-    // console.log(formData);
 
     const handleChange = ({ target }) => {
         setFormData({...card, [target.name]: target.value, });
@@ -43,9 +39,7 @@ function CardEdit({deck, deckId}) {
     const submitHandler = async ( event ) => {
         event.preventDefault();
         await updateCard(formData);
-        
         history.push(`/decks/${deck.id}`);
-        // history.go(0);
         };
 
     return (

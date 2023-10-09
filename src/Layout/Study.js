@@ -14,7 +14,6 @@ function Study() {
 
     };
     
-    // console.log(param);
     useEffect(() => {
         async function readingDeck(param) {
             try {
@@ -26,8 +25,6 @@ function Study() {
         readingDeck(param);
         // console.log(readingDeck(param));
     }, [param])
-
-    console.log(deck);
 
     const numberOfCards = deck.cards ? deck.cards.length : 0;
     const enoughCards = () => {
