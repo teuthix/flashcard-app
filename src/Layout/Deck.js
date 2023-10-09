@@ -4,6 +4,7 @@ import { readDeck } from "../utils/api";
 import EditDeck from "./EditDeck";
 import NewCard from "./NewCard";
 import CardList from "./CardList";
+import CardEdit from "./CardEdit";
 
 function Deck() {
     const param = useParams().deckId;
@@ -24,8 +25,14 @@ function Deck() {
     }, [param]);
     
     
-      const deckDisplay =  <>
-            <h6><Link to="/">Home</Link> / {deck.name}</h6>
+      const deckDisplay =  
+        <>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">{deck.name}</li>
+          </ol>
+        </nav>
             <h4>{deck.name}</h4>
             <p>{deck.description}</p>
             <Link to={`/decks/${deck.id}/edit`}>
@@ -56,9 +63,12 @@ function Deck() {
             <Route path="/decks/:deckId/edit">
                 <EditDeck deck={deck} setDeck={setDeck}/>
             </Route>
-        <Route path="/decks/:deckId/cards/new">
-            <NewCard />
-        </Route>
+            <Route path="/decks/:deckId/cards/new">
+                <NewCard cards={cards} setCards={setCards} />
+            </Route>
+            <Route path="/decks/:deckId/cards/:cardId/edit">
+                <CardEdit deck={deck} deckId={param}/>
+            </Route>
        </Switch>
     )
 };

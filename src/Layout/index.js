@@ -30,7 +30,7 @@ function Layout() {
   }, []);
   
   const handleClick = async (event) => {
-    const text = "Delete this deck?\nYou will not be able to recover is.";
+    const text = "Delete this deck?\n\nYou will not be able to recover is.";
     if(window.confirm(text)) {
       const deleteId = Number(event.target.id);
       await deleteDeck(deleteId);

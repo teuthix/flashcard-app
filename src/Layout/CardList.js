@@ -4,6 +4,7 @@ import { deleteCard } from "../utils/api";
 function CardList({cards, deckId, setCards}) {
     const history = useHistory();
 
+    // NEED TO REFRESH WHEN CARDS IS UPDATED
     // turns card into empty object
     const deleteCardHandler = async (e) => {
         const text = "Delete this deck?\nYou will not be able to recover is.";

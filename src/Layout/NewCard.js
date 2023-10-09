@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 
-function NewCard(){
+function NewCard({cards, setCards}){
     const initialForm = {
         front: "",
         back: "",
@@ -34,6 +34,7 @@ function NewCard(){
         event.preventDefault();
         // console.log("we are in the handleSubmit");
         await createCard(Number(decksId), newCard);
+        
         setNewCard({...initialForm});
     };
     

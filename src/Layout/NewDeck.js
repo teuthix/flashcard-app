@@ -38,7 +38,12 @@ function NewDeck({ decks, setDecks }) {
 
     return (
         <Route path="/decks/new">
-            <h6><Link to="/">Home</Link> / Create Deck</h6>
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active" aria-current="page">Create Deck</li>
+              </ol>
+            </nav>
             <h3>Create Deck</h3>
             <form onSubmit={submitHandler}>
                 <label htmlFor="name">

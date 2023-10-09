@@ -22,7 +22,13 @@ function EditDeck({deck, setDeck}) {
 
     return (
         <Route path="/decks/:deckId/edit">
-            <h6><Link to="/">Home</Link> / {deck.name} / Edit Deck</h6>
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
+                <li className="breadcrumb-item active" aria-current="page">Edit Deck</li>
+              </ol>
+            </nav>
             <h3>Edit Deck</h3>
             <form onSubmit={submitHandler}>
                 <label htmlFor="name">
@@ -46,7 +52,7 @@ function EditDeck({deck, setDeck}) {
                         onChange={handleChange}
                     />
                 </label>
-            <Link to="/">
+            <Link to={`/decks/${deck.id}`}>
                 <button type="button" className="btn btn-secondary">Cancel</button>
             </Link>
                 <button type="submit" className="btn btn-primary">Submit</button>

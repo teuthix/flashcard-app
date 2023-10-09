@@ -17,7 +17,7 @@
     },
     {
       "name": "test again",
-      "description": "desc",
+      "description": "descrip test",
       "id": 6
     }
   ],
@@ -60,10 +60,16 @@
       "id": 7
     },
     {
-      "front": "card f",
-      "back": " card b",
+      "front": "card fkjhkh",
+      "back": " card b test22bjgkjn",
       "deckId": 6,
       "id": 10
+    },
+    {
+      "front": "test for checklist",
+      "back": "description for checklist, editing again",
+      "deckId": 6,
+      "id": 12
     }
   ]
 }

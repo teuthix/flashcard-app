@@ -71,7 +71,13 @@ function Study() {
     
     return (
         <>
-            <h6><Link to="/">Home</Link> / {deck.name} / Study</h6>
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
+                <li className="breadcrumb-item active" aria-current="page">Study</li>
+              </ol>
+            </nav>
             <h3>Study: {deck.name}</h3>
             {(numberOfCards < 3) ? notEnoughCards() : enoughCards()}
             
