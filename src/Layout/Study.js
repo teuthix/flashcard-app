@@ -9,11 +9,12 @@ function Study() {
     const [numCard, setNumCard] = useState(0);
     const history = useHistory();
     
+    // when flip button clicked, changes flipped boolean
     const handleFlip = () => {
         setFlipped(!flipped);
-
     };
     
+    // api fetches deck being targeted
     useEffect(() => {
         async function readingDeck(param) {
             try {
@@ -27,6 +28,8 @@ function Study() {
     }, [param])
 
     const numberOfCards = deck.cards ? deck.cards.length : 0;
+
+    //if there are enough cards, return the card to be flipped
     const enoughCards = () => {
         return (
             <div className="card">
@@ -57,6 +60,7 @@ function Study() {
         );
     };
 
+    // if there aren't enough cards, return this page
     const notEnoughCards = () => {
         return (
             <>
@@ -66,6 +70,7 @@ function Study() {
         )
     }
     
+    //returns the breadcrumb nav and whichever function depending on if there are <= 3 cards
     return (
         <>
             <nav aria-label="breadcrumb">

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 
 function NewCard({cards, setCards}){
+    //initial state of the form is a blank card
     const initialForm = {
         front: "",
         back: "",
@@ -12,7 +13,7 @@ function NewCard({cards, setCards}){
     const [newCard, setNewCard] = useState({...initialForm});
     const decksId = useParams().deckId;
 
-    // new useState for deck?
+    // fetch deck being targeted
     useEffect(() => {
         async function fetchDeck(decksId){
             try{
@@ -21,21 +22,23 @@ function NewCard({cards, setCards}){
             } catch {};
         };
         fetchDeck(decksId);
-        // console.log(retrieve(decksId));
     }, [decksId]);
 
+    // on change, update the newCard
     const handleChange = ({target}) => {
         setNewCard({...newCard, [target.name]: target.value});
     }
 
+    // on submit, use the createCard api and reset newCard to a blank form
     const handleSubmit = async (event) => {
         event.preventDefault();
         // console.log("we are in the handleSubmit");
         await createCard(Number(decksId), newCard);
-        
-        setNewCard({...initialForm});
+        setCards([...cards, newCard]);
+         setNewCard({...initialForm});
     };
     
+    // return a breadcrumb nav and a form
     return (
         <>
         <nav aria-label="breadcrumb">

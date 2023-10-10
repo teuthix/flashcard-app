@@ -19,6 +19,11 @@
       "name": "test again",
       "description": "descrip test",
       "id": 6
+    },
+    {
+      "name": "test deck djldkjf",
+      "description": "dest decription 323423",
+      "id": 7
     }
   ],
   "cards": [
@@ -58,18 +63,6 @@
       "back": "b",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "front": "card fkjhkh",
-      "back": " card b test22bjgkjn",
-      "deckId": 6,
-      "id": 10
-    },
-    {
-      "front": "test for checklist",
-      "back": "description for checklist, editing again",
-      "deckId": 6,
-      "id": 12
     }
   ]
 }

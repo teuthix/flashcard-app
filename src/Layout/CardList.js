@@ -7,20 +7,27 @@ function CardList({cards, deckId, setCards}) {
     // NEED TO REFRESH WHEN CARDS IS UPDATED
     // turns card into empty object
     const deleteCardHandler = async (e) => {
+        console.log(e.target.id);
         const text = "Delete this deck?\nYou will not be able to recover is.";
         if(window.confirm(text)){
-            await deleteCard(e.target.id);
             const cardies = cards.filter((card) => {
                 return card.id !== e.target.id;
             });
-            setCards([...cardies]);
-            history.go(0);
+            await deleteCard(e.target.id);
+              history.push(`/decks/${deckId}`);
+              setCards([...cardies]);
+            // const cardies = cards.filter((card) => {
+            //     return card.id !== e.target.id;
+            // });
+            // setCards([...cardies]);
+            //http://localhost:3000/decks/6/
         }
     };
 
-    const eachCard = cards.map((eaCard) => {
+    // map cards, returning a card(bootstrap) with each card's information
+    const eachCard = cards.map((eaCard, index) => {
         return (
-            <div className="card" key={eaCard.id}>
+            <div className="card" key={index}>
                 <div>{eaCard.front}</div>
                 <div>{eaCard.back}</div>
                 <Link to={`/decks/${deckId}/cards/${eaCard.id}/edit`}>

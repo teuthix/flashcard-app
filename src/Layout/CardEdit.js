@@ -20,7 +20,7 @@ function CardEdit({deck, deckId}) {
     // }, [deckId]);
 
     const [formData, setFormData] = useState({});
-    // REQUIRED
+    // REQUIRED fetches targeted deck
     useEffect(() => {
         async function fetchCard(cardId) {
             try {
@@ -32,6 +32,7 @@ function CardEdit({deck, deckId}) {
             fetchCard(cardId);
     }, [cardId]);
 
+    // on change, update the formData
     const handleChange = ({ target }) => {
         setFormData({...card, [target.name]: target.value, });
     };

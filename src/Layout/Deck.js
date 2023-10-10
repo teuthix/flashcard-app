@@ -11,6 +11,7 @@ function Deck() {
     const [deck, setDeck] = useState({});
     const [cards, setCards] = useState([]);
 
+    // fetches deck being targeted
     useEffect(() => {
         async function readingDeck(param) {
             try {
@@ -23,7 +24,7 @@ function Deck() {
         readingDeck(param);
     }, [param]);
     
-    
+    // breadcrumb nav and deck name, description, buttons, and header for cards
       const deckDisplay =  
         <>
         <nav aria-label="breadcrumb">
@@ -53,6 +54,8 @@ function Deck() {
             <h3>Cards</h3>
         </>
 
+    // this page is deckDisplay and CardList
+    // other pages have stuff passed in like the deck and cards
     return (
        <Switch>
             <Route exact path="/decks/:deckId">

@@ -10,16 +10,18 @@ function EditDeck({deck, setDeck}) {
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value });
     };
-    // console.log(deck);
     
+    // on submit, set the deck variable to whatever is in formData
+    // use updateDeck to update the deck
+    // history.push sends user to deck page
     const submitHandler = async ( event ) => {
         event.preventDefault();
         setDeck({...formData});
         await updateDeck(deck);
-        // setDecks({...decks, deck});
         history.push(`/decks/${deck.id}`);
     };
 
+    // return breadcrumb nav, and the form to edit the deck
     return (
         <Route path="/decks/:deckId/edit">
             <nav aria-label="breadcrumb">

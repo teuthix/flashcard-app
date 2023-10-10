@@ -10,6 +10,7 @@ import { Switch, Route, Link } from "react-router-dom";
 function Layout() {
   const [decks, setDecks] = useState([]);
   
+  // fetches list of decks to be displayed
   useEffect(() => {
     async function fetchDecks(){
       try {
@@ -21,6 +22,8 @@ function Layout() {
     fetchDecks();
   }, []);
   
+  // handles clicking delete, warning message pops up
+  // sets deck to new array of decks with deleted id deck filtered out
   const handleClick = async (event) => {
     const text = "Delete this deck?\n\nYou will not be able to recover is.";
     if(window.confirm(text)) {
@@ -33,7 +36,7 @@ function Layout() {
     }
   };
   
-
+  //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     return (
       <div className="card" key={deck.id}>
@@ -53,6 +56,8 @@ function Layout() {
     )
   });
 
+  // header with everything else nested under it in a <Switch>
+  // Home, Study, NewDeck, Deck(view), NotFound
   return (
     <>
       <Header />
