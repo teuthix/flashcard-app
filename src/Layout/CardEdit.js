@@ -2,9 +2,9 @@ import React, { useEffect, useState} from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readCard, updateCard } from "../utils/api";
 
-function CardEdit({deck, deckId}) {
+function CardEdit({deck, deckId, setCards}) {
     const cardId = useParams().cardId;
-    const [card, setCard] = useState([]);
+    const [editCard, setEditCard] = useState([]);
     const history = useHistory();
 
     // REQUIRED (passing in from CardList)
@@ -20,12 +20,12 @@ function CardEdit({deck, deckId}) {
     // }, [deckId]);
 
     const [formData, setFormData] = useState({});
-    // REQUIRED fetches targeted deck
+    // REQUIRED fetches targeted card which fills in form initially
     useEffect(() => {
         async function fetchCard(cardId) {
             try {
                 const response = await readCard(cardId);
-                setCard(response);
+                setEditCard(response);
                 setFormData({...response});
             } catch{}
         }
@@ -34,12 +34,23 @@ function CardEdit({deck, deckId}) {
 
     // on change, update the formData
     const handleChange = ({ target }) => {
-        setFormData({...card, [target.name]: target.value, });
+        setFormData({...editCard, [target.name]: target.value, });
+        console.log(formData);
     };
 
+    // find card by id, remove old, add new
+    // if id === edit id, return edited card, else returns card
     const submitHandler = async ( event ) => {
         event.preventDefault();
         await updateCard(formData);
+        // setCards((currentCards) => currentCards.forEach((eaCard) => {
+        //     const newCardList = [];
+        //     if(eaCard.id !== event.target.id){
+        //         newCardList.push(eaCard);
+        //     } else {
+        //         newCardList.push(formData);
+        //     }
+        // }))
         history.push(`/decks/${deck.id}`);
         };
 
@@ -49,7 +60,7 @@ function CardEdit({deck, deckId}) {
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><Link to="/">Home</Link></li>
               <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
-              <li className="breadcrumb-item active" aria-current="page">Edit Card {card.id}</li>
+              <li className="breadcrumb-item active" aria-current="page">Edit Card {editCard.id}</li>
             </ol>
           </nav>
         <h4>Edit Card</h4>
@@ -60,7 +71,7 @@ function CardEdit({deck, deckId}) {
                         id="front"
                         name="front" 
                         value={formData.front}
-                        placeholder={card.front}
+                        placeholder={editCard.front}
                         onChange={handleChange}
                     />
                 </label>
@@ -70,14 +81,14 @@ function CardEdit({deck, deckId}) {
                         id="back"
                         name="back"
                         value={formData.back}
-                        placeholder={card.back}
+                        placeholder={editCard.back}
                         onChange={handleChange}
                     />
                 </label>
                 <Link to={`/decks/${deckId}`}>
                     <button type="button" className="btn btn-secondary">Done</button>
                 </Link>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" id={editCard.id} className="btn btn-primary">Submit</button>
             </form>
       </>
     )

@@ -11,19 +11,9 @@
       "id": 2
     },
     {
-      "name": "testtttting 1232",
-      "description": "testing again test test 2",
-      "id": 5
-    },
-    {
-      "name": "test again",
-      "description": "descrip test",
-      "id": 6
-    },
-    {
-      "name": "test deck djldkjf",
-      "description": "dest decription 323423",
-      "id": 7
+      "name": "edit card",
+      "description": "test reststsets",
+      "id": 3
     }
   ],
   "cards": [
@@ -63,6 +53,18 @@
       "back": "b",
       "deckId": 1,
       "id": 7
+    },
+    {
+      "front": "test card 1 test",
+      "back": "descript try again",
+      "deckId": 3,
+      "id": 8
+    },
+    {
+      "front": "test card 2",
+      "back": "descript2",
+      "deckId": 3,
+      "id": 9
     }
   ]
 }

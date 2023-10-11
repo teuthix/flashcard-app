@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Link, useHistory }  from "react-router-dom";
 import { createDeck } from "../utils/api";
 
@@ -11,29 +11,17 @@ function NewDeck({ decks, setDecks }) {
 
     const history = useHistory();
     const [formData, setFormData] = useState({...initialForm});
-    const [submitted, setSubmitted] = useState(false);
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value, });
     };
-    
-    useEffect(() => {
-        async function newDeckMaker(formData){
-            if (submitted) {
-                try {
-                    const newDeck = await createDeck(formData);
-                    setDecks([...decks, newDeck]);
-                    history.push(`/decks/${newDeck.id}`);
-                } catch (error) {
-                }
-            }
-        }
-        newDeckMaker(formData);
-    });
 
-    const submitHandler = ( event ) => {
-        event.preventDefault();
-        setSubmitted(!submitted);
+const submitHandler = async ( event ) => {
+    event.preventDefault();
+    const newDeck = await createDeck(formData);
+    setDecks([...decks, newDeck]);
+    history.push(`/decks/${newDeck.id}`);
+        // setSubmitted(!submitted);
     };
 
     return (

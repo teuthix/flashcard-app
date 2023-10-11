@@ -42,7 +42,7 @@ function Layout() {
       <div className="card" key={deck.id}>
         <div className="card-body">
           <h5 className="card-title">{deck.name}</h5>
-          <h6 className="card-subtitle">Cards {deck.cards ? deck.cards.length : "0"}</h6>
+          <h6 className="card-subtitle">{deck.cards ? deck.cards.length : "0"} cards</h6>
           <p className="card-text">{deck.description}</p>
           <Link to={`/decks/${deck.id}`}>
             <button type="button" className="btn btn-secondary">View</button>
@@ -50,7 +50,7 @@ function Layout() {
           <Link to={`/decks/${deck.id}/study`}>
             <button type="button" className="btn btn-primary">Study</button>
           </Link>
-          <button type="button" id={deck.id} onClick={handleClick} className="btn btn-danger">Delete</button>
+          <button type="button" id={deck.id} onClick={handleClick} className="btn btn-danger">Working Delete</button>
         </div>
       </div>
     )
@@ -76,7 +76,7 @@ function Layout() {
             <NewDeck decks={decks} setDecks={setDecks} />
           </Route>
           <Route path="/decks/:deckId">
-            <Deck />
+            <Deck  setDecks={setDecks} />
           </Route>
           <Route>
             <NotFound />

@@ -7,19 +7,14 @@ function CardList({cards, deckId, setCards}) {
     // NEED TO REFRESH WHEN CARDS IS UPDATED
     // turns card into empty object
     const deleteCardHandler = async (e) => {
-        console.log(e.target.id);
         const text = "Delete this deck?\nYou will not be able to recover is.";
         if(window.confirm(text)){
+            await deleteCard(e.target.id);
             const cardies = cards.filter((card) => {
                 return card.id !== e.target.id;
             });
-            await deleteCard(e.target.id);
-              history.push(`/decks/${deckId}`);
-              setCards([...cardies]);
-            // const cardies = cards.filter((card) => {
-            //     return card.id !== e.target.id;
-            // });
-            // setCards([...cardies]);
+            setCards([...cardies]);
+            history.push(`/decks/${deckId}`);
             //http://localhost:3000/decks/6/
         }
     };
