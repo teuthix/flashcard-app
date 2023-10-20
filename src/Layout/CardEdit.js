@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readCard, updateCard } from "../utils/api";
+import CardForm from "./CardForm";
 
-function CardEdit({deck, deckId, setCards}) {
+function CardEdit({deck, setCards}) {
     const cardId = useParams().cardId;
     const [editCard, setEditCard] = useState([]);
     const history = useHistory();
@@ -35,22 +36,21 @@ function CardEdit({deck, deckId, setCards}) {
     // on change, update the formData
     const handleChange = ({ target }) => {
         setFormData({...editCard, [target.name]: target.value, });
-        console.log(formData);
+        // console.log(formData);
     };
 
     // find card by id, remove old, add new
     // if id === edit id, return edited card, else returns card
-    const submitHandler = async ( event ) => {
+    const handleSubmit = async ( event ) => {
         event.preventDefault();
         await updateCard(formData);
-        // setCards((currentCards) => currentCards.forEach((eaCard) => {
-        //     const newCardList = [];
-        //     if(eaCard.id !== event.target.id){
-        //         newCardList.push(eaCard);
-        //     } else {
-        //         newCardList.push(formData);
-        //     }
-        // }))
+        setCards((currentCards) => currentCards.map((eaCard) => {
+            if(eaCard.id === editCard.id){
+                return formData;
+            } else {
+                return eaCard;
+            }
+        }))
         history.push(`/decks/${deck.id}`);
         };
 
@@ -64,32 +64,7 @@ function CardEdit({deck, deckId, setCards}) {
             </ol>
           </nav>
         <h4>Edit Card</h4>
-        <form onSubmit={submitHandler}>
-                <label htmlFor="front">
-                    Front
-                    <textarea
-                        id="front"
-                        name="front" 
-                        value={formData.front}
-                        placeholder={editCard.front}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label htmlFor="back">
-                    Back
-                    <textarea
-                        id="back"
-                        name="back"
-                        value={formData.back}
-                        placeholder={editCard.back}
-                        onChange={handleChange}
-                    />
-                </label>
-                <Link to={`/decks/${deckId}`}>
-                    <button type="button" className="btn btn-secondary">Done</button>
-                </Link>
-                <button type="submit" id={editCard.id} className="btn btn-primary">Submit</button>
-            </form>
+        <CardForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
       </>
     )
 }

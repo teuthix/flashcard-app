@@ -16,7 +16,7 @@ function Layout() {
       try {
         const response = await listDecks();
         setDecks(response);
-      } catch {
+      } catch (error){
       }
     }
     fetchDecks();
@@ -50,7 +50,7 @@ function Layout() {
           <Link to={`/decks/${deck.id}/study`}>
             <button type="button" className="btn btn-primary">Study</button>
           </Link>
-          <button type="button" id={deck.id} onClick={handleClick} className="btn btn-danger">Working Delete</button>
+          <button type="button" id={deck.id} onClick={handleClick} className="btn btn-danger">Delete</button>
         </div>
       </div>
     )

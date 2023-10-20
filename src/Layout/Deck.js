@@ -29,7 +29,6 @@ function Deck({setDecks}) {
         const text = "Delete this deck?\n\nYou will not be able to recover is.";
             if(window.confirm(text)) {
               const deleteId = Number(e.target.id);
-              console.log(e.target.id);
               await deleteDeck(deleteId);
               setDecks((currentDecks) => 
                 currentDecks.filter((deck) => deck.id !== deleteId)
@@ -83,7 +82,7 @@ function Deck({setDecks}) {
                 <NewCard cards={cards} setCards={setCards} />
             </Route>
             <Route path="/decks/:deckId/cards/:cardId/edit">
-                <CardEdit deck={deck} deckId={param} setCards={setCards} />
+                <CardEdit deck={deck} setCards={setCards} />
             </Route>
        </Switch>
     )
