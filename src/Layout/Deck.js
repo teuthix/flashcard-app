@@ -16,9 +16,12 @@ function Deck({setDecks}) {
     // fetches deck being targeted
     useEffect(() => {
         async function readingDeck(param) {
+            try {
                 const response = await readDeck(param);
                 setDeck(response);
-                setCards(response.cards);
+                setCards(response.cards)
+            } catch {
+            }
         }
         readingDeck(param);
     }, [param]);

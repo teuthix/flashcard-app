@@ -17,8 +17,10 @@ function NewCard({cards, setCards}){
     // fetch deck being targeted
     useEffect(() => {
         async function fetchDeck(decksId){
+            try{
                 const response = await readDeck(decksId);
                 setDeck(response);
+            } catch {};
         };
         fetchDeck(decksId);
     }, [decksId]);

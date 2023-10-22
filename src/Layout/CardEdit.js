@@ -24,9 +24,11 @@ function CardEdit({deck, setCards}) {
     // REQUIRED fetches targeted card which fills in form initially
     useEffect(() => {
         async function fetchCard(cardId) {
+            try {
                 const response = await readCard(cardId);
                 setEditCard(response);
                 setFormData({...response});
+            } catch{}
         }
             fetchCard(cardId);
     }, [cardId]);

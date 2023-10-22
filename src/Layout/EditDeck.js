@@ -5,10 +5,10 @@ import { updateDeck } from "../utils/api";
 function EditDeck({deck, setDeck}) {
     const [formData, setFormData] = useState({name: deck.name, description: deck.description, id: deck.id, cards: []});
     const history = useHistory();
-  
-  useEffect(() => {
-    setFormData(deck);
-  }, [deck])
+
+    useEffect(() => {
+        setFormData(deck);
+    }, [deck]);
 
     // if theres any change, update the formData
     const handleChange = ({ target }) => {
@@ -35,13 +35,8 @@ function EditDeck({deck, setDeck}) {
                 <li className="breadcrumb-item active" aria-current="page">Edit Deck</li>
               </ol>
             </nav>
-            <h3>Edit Deck: {deck.name}</h3>
-        
-        <h1>{deck.name}</h1>
-        <input value="Mock Deck 33" />
-        
-        
-            <form onSubmit={submitHandler} onChange={handleChange}>
+            <h3>Edit Deck</h3>
+            <form onSubmit={submitHandler}>
                 <label htmlFor="name">
                     Name
                     <input
@@ -50,7 +45,7 @@ function EditDeck({deck, setDeck}) {
                         name="name"
                         placeholder={deck.name}
                         value={formData.name}
-                        
+                        onChange={handleChange}
                     />
                 </label>
                 <label htmlFor="description">
@@ -60,7 +55,7 @@ function EditDeck({deck, setDeck}) {
                         name="description"
                         placeholder={deck.description}
                         value={formData.description}
-                        // onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </label>
             <Link to={`/decks/${deck.id}`}>
