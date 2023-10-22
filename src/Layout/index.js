@@ -13,11 +13,8 @@ function Layout() {
   // fetches list of decks to be displayed
   useEffect(() => {
     async function fetchDecks(){
-      try {
         const response = await listDecks();
         setDecks(response);
-      } catch (error){
-      }
     }
     fetchDecks();
   }, []);

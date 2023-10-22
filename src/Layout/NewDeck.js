@@ -21,7 +21,6 @@ const submitHandler = async ( event ) => {
     const newDeck = await createDeck(formData);
     setDecks([...decks, newDeck]);
     history.push(`/decks/${newDeck.id}`);
-        // setSubmitted(!submitted);
     };
 
     return (
@@ -33,7 +32,7 @@ const submitHandler = async ( event ) => {
               </ol>
             </nav>
             <h3>Create Deck</h3>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} onChange={handleChange}>
                 <label htmlFor="name">
                     Name
                     <input
@@ -42,7 +41,7 @@ const submitHandler = async ( event ) => {
                         name="name"
                         placeholder="Deck Name" 
                         value={formData.name}
-                        onChange={handleChange}
+                        
                     />
                 </label>
                 <label htmlFor="description">
@@ -52,7 +51,7 @@ const submitHandler = async ( event ) => {
                         name="description"
                         placeholder="Brief description of the deck"
                         value={formData.description}
-                        onChange={handleChange}
+                        // onChange={handleChange}
                     />
                 </label>
             <Link to="/">

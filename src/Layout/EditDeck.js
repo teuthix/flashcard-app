@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { Route, Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { updateDeck } from "../utils/api";
 
 function EditDeck({deck, setDeck}) {
     const [formData, setFormData] = useState({name: deck.name, description: deck.description, id: deck.id, cards: []});
     const history = useHistory();
+  
+  useEffect(() => {
+    setFormData(deck);
+  }, [deck])
 
     // if theres any change, update the formData
     const handleChange = ({ target }) => {
@@ -23,7 +27,7 @@ function EditDeck({deck, setDeck}) {
 
     // return breadcrumb nav, and the form to edit the deck
     return (
-        <Route path="/decks/:deckId/edit">
+        <>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -31,8 +35,13 @@ function EditDeck({deck, setDeck}) {
                 <li className="breadcrumb-item active" aria-current="page">Edit Deck</li>
               </ol>
             </nav>
-            <h3>Edit Deck</h3>
-            <form onSubmit={submitHandler}>
+            <h3>Edit Deck: {deck.name}</h3>
+        
+        <h1>{deck.name}</h1>
+        <input value="Mock Deck 33" />
+        
+        
+            <form onSubmit={submitHandler} onChange={handleChange}>
                 <label htmlFor="name">
                     Name
                     <input
@@ -41,7 +50,7 @@ function EditDeck({deck, setDeck}) {
                         name="name"
                         placeholder={deck.name}
                         value={formData.name}
-                        onChange={handleChange}
+                        
                     />
                 </label>
                 <label htmlFor="description">
@@ -51,7 +60,7 @@ function EditDeck({deck, setDeck}) {
                         name="description"
                         placeholder={deck.description}
                         value={formData.description}
-                        onChange={handleChange}
+                        // onChange={handleChange}
                     />
                 </label>
             <Link to={`/decks/${deck.id}`}>
@@ -59,7 +68,7 @@ function EditDeck({deck, setDeck}) {
             </Link>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-        </Route>
+        </>
     )
 };
 

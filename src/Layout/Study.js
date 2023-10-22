@@ -17,11 +17,8 @@ function Study() {
     // api fetches deck being targeted
     useEffect(() => {
         async function readingDeck(param) {
-            try {
                 const response = await readDeck(param);
                 setDeck(response);
-            } catch {
-            }
         }
         readingDeck(param);
         // console.log(readingDeck(param));
