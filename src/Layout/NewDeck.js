@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Link, useHistory }  from "react-router-dom";
+import { Link, useHistory }  from "react-router-dom";
 import { createDeck } from "../utils/api";
 
 // decks is all decks being rendered from index
@@ -24,7 +24,7 @@ const submitHandler = async ( event ) => {
     };
 
     return (
-        <Route path="/decks/new">
+        <>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -32,34 +32,40 @@ const submitHandler = async ( event ) => {
               </ol>
             </nav>
             <h3>Create Deck</h3>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="d-flex flex-column">
                 <label htmlFor="name">
                     Name
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        placeholder="Deck Name" 
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
                 </label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    className="mb-3"
+                    placeholder="Deck Name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                />
                 <label htmlFor="description">
                     Description
-                    <textarea
-                        id="description"
-                        name="description"
-                        placeholder="Brief description of the deck"
-                        value={formData.description}
-                        onChange={handleChange}
-                    />
                 </label>
-            <Link to="/">
-                <button type="button" className="btn btn-secondary">Cancel</button>
-            </Link>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <textarea
+                    id="description"
+                    name="description"
+                    className="mb-3"
+                    placeholder="Brief description of the deck"
+                    value={formData.description}
+                    onChange={handleChange}
+                />
+                <div className="d-flex">
+                    <Link to="/">
+                        <button type="button" className="btn btn-secondary">Cancel</button>
+                    </Link>
+                    <div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             </form>
-        </Route>
+        </>
     )
 };
 

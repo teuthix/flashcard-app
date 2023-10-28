@@ -22,13 +22,25 @@ function CardList({cards, deckId, setCards}) {
     const eachCard = cards.map((eaCard, index) => { 
         // console.log(eaCard, "anything");
         return (
-            <div className="card" key={index}>
-                <div>{eaCard.front}</div>
-                <div>{eaCard.back}</div>
-                <Link to={`/decks/${deckId}/cards/${eaCard.id}/edit`}>
-                    <button type="button" className="btn btn-secondary">Edit</button>
-                </Link>
-                <button type="button" id={eaCard.id} onClick={(e) => deleteCardHandler(e, eaCard.id)} className="btn btn-danger">Delete</button>
+            <div className="card d-flex flex-column p-4" key={index}>
+                <div className="d-flex justify-content-between">
+                    <div>{eaCard.front}</div>
+                    <div>{eaCard.back}</div>
+                </div>
+                <div className="d-flex justify-content-end pt-2">
+                    <Link to={`/decks/${deckId}/cards/${eaCard.id}/edit`}>
+                        <button type="button" className="btn btn-secondary">Edit</button>
+                    </Link>
+                    <div>
+                        <button 
+                        type="button" 
+                        id={eaCard.id} 
+                        onClick={(e) => deleteCardHandler(e, eaCard.id)} 
+                        className="btn btn-danger">
+                            Delete
+                        </button>
+                    </div>
+                </div>
             </div>
         )
       });

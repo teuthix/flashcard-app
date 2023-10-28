@@ -9,27 +9,30 @@ function CardForm({formData, handleChange, handleSubmit}) {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="d-flex flex-column p-2">
             <label htmlFor="front">
                 Front
-                <textarea
-                  id="front"
-                  name="front"
-                  placeholder="Front side of card"
-                  value={formData.front}
-                  onChange={handleChange}
-                />
-            </label>
+              </label>
+              <textarea
+                id="front"
+                name="front"
+                className="mb-3"
+                placeholder="Front side of card"
+                value={formData.front}
+                onChange={handleChange}
+              />
             <label htmlFor="back">
                 Back
-                <textarea
-                  id="back"
-                  name="back"
-                  placeholder="Back side of card"
-                  value={formData.back}
-                  onChange={handleChange}
-                />
-            </label>
+              </label>
+              <textarea
+                id="back"
+                name="back"
+                className="mb-3"
+                placeholder="Back side of card"
+                value={formData.back}
+                onChange={handleChange}
+              />
+              <div>
                 <Link to={`/decks/${deckId}`}>
                   <button type="button" className="btn btn-secondary">Done</button>
                 </Link>
@@ -41,6 +44,7 @@ function CardForm({formData, handleChange, handleSubmit}) {
                   Save
                 </button>)
                 }
+              </div>
         </form>
         </>
     );

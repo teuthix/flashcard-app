@@ -32,10 +32,11 @@ function Study() {
     //if there are enough cards, return the card to be flipped
     const enoughCards = () => {
         return (
-            <div className="card">
+            <div className="card p-4">
                 {<h3>Card {numCard + 1} of {numberOfCards}</h3>}
                 {deck.cards && flipped === false && <p>{deck.cards[numCard].front}</p>}
                 {deck.cards && flipped === true && <p>{deck.cards[numCard].back}</p>}
+                <div>
                 <button type="button" onClick={handleFlip} className="btn btn-secondary">Flip</button>
                 {flipped === true ? <button 
                     type="button" 
@@ -56,6 +57,7 @@ function Study() {
                     className="btn btn-primary">
                         Next
                 </button> : ""}
+                </div>
             </div>
         );
     };
@@ -80,7 +82,7 @@ function Study() {
                 <li className="breadcrumb-item active" aria-current="page">Study</li>
               </ol>
             </nav>
-            <h3>Study: {deck.name}</h3>
+            <h2>Study: {deck.name}</h2>
             {(numberOfCards < 3) ? notEnoughCards() : enoughCards()}
             
         </>

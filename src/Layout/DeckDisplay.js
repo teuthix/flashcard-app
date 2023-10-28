@@ -15,7 +15,7 @@ function DeckDisplay({deck, deleteHandler}) {
         <p>{deck.description}</p>
       </header>
         <Link to={`/decks/${deck.id}/edit`}>
-            <button type="button" className="btn btn-secondary">
+            <button type="button" className="btn btn-secondary me-2">
                 Edit
             </button>
         </Link>
@@ -30,7 +30,7 @@ function DeckDisplay({deck, deleteHandler}) {
             </button>
         </Link>
             <button type="button" id={deck.id} onClick={deleteHandler} className="btn btn-danger">Delete</button>
-        <h3>Cards</h3>
+        <h3 className="pt-4 pb-2">Cards</h3>
     </>
     )
 };
