@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useParams, useHistory } from "react-router-dom";
-import { readDeck, deleteDeck } from "../utils/api";
+import { readDeck, deleteDeck } from "../../utils/api";
 import EditDeck from "./EditDeck";
-import NewCard from "./NewCard";
-import CardList from "./CardList";
-import CardEdit from "./CardEdit";
+import NewCard from "../Cards/NewCard";
+import CardList from "../Cards/CardList";
+import CardEdit from "../Cards/CardEdit";
 import DeckDisplay from "./DeckDisplay";
 
 function Deck({setDecks}) {

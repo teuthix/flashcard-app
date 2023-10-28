@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { updateDeck } from "../utils/api";
+import { updateDeck } from "../../utils/api";
 
 function EditDeck({deck, setDeck}) {
     const [formData, setFormData] = useState({name: deck.name, description: deck.description, id: deck.id, cards: []});

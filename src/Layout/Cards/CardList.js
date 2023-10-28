@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { deleteCard } from "../utils/api";
+import { deleteCard } from "../../utils/api";
 
 function CardList({cards, deckId, setCards}) {
     // deleting turns card into empty object
