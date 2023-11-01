@@ -14,6 +14,26 @@
       "name": "edit card",
       "description": "test reststsets",
       "id": 3
+    },
+    {
+      "name": "test",
+      "description": "test deck",
+      "id": 4
+    },
+    {
+      "name": "testt",
+      "description": "sdsdfvs",
+      "id": 7
+    },
+    {
+      "name": "testttt",
+      "description": "sfdsdc",
+      "id": 8
+    },
+    {
+      "name": "testtt",
+      "description": "sdfadfsdx",
+      "id": 9
     }
   ],
   "cards": [
@@ -67,8 +87,8 @@
       "id": 9
     },
     {
-      "front": "last test",
-      "back": "testsetafds",
+      "front": "test",
+      "back": "test",
       "deckId": 3,
       "id": 10
     }

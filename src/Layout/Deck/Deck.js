@@ -45,9 +45,9 @@ function Deck({setDecks}) {
     return (
        <Switch>
             <Route exact path="/decks/:deckId">
+                <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
                 {cards.length ? 
                 <>
-                <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
                 <CardList cards={cards} deckId={param} setCards={setCards}/>
                 </>
                  : ""}
