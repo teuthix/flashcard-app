@@ -6,7 +6,9 @@ import Study from "../Study/Study";
 import NewDeck from "../Deck/NewDeck";
 import Deck from "../Deck/Deck";
 import DecksHome from "./DecksHome";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+
+import "./index.css";
 
 function Layout() {
   const [decks, setDecks] = useState([]);
@@ -44,11 +46,6 @@ function Layout() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Link to="/decks/new">
-              <button type="button" className="btn btn-secondary">
-                + Create Deck
-              </button>
-            </Link>
             <DecksHome decks={decks} handleClick={handleClick} />
           </Route>
           <Route path="/decks/:deckId/study">
