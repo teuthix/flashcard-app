@@ -6,7 +6,7 @@ function DecksHome({ decks, handleClick }) {
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     return (
-      <div className="card d-flex p-2 mb-3" key={deck.id}>
+      <div className="card d-flex p-2 mb-3 item" key={deck.id}>
         <div className="card-body">
           <h5 className="card-title">{deck.name}</h5>
           <h6 className="card-subtitle">
@@ -42,10 +42,10 @@ function DecksHome({ decks, handleClick }) {
 
   return (
     <div className="d-flex flex-row">
-      <h3 className="border border-5 p-4 mx-5 w-25 align-self-start">
+      {/* <h3 className="border border-5 p-4 mx-5 w-25 align-self-start">
         All Decks
-      </h3>
-      <div>{eachDeck}</div>
+      </h3> */}
+      <div className="container">{eachDeck}</div>
     </div>
   );
 }
