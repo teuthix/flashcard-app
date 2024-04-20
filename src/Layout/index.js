@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import { listDecks, deleteDeck } from "../utils/api";
+import { listDecks } from "../utils/api";
 import Study from "../Study/Study";
 import NewDeck from "../Deck/NewDeck";
 import Deck from "../Deck/Deck";
@@ -24,20 +24,6 @@ function Layout() {
     fetchDecks();
   }, []);
 
-  // handles clicking delete, warning message pops up
-  // sets deck to new array of decks with deleted id deck filtered out
-  const handleClick = async (event) => {
-    const text = "Delete this deck?\n\nYou will not be able to recover is.";
-    if (window.confirm(text)) {
-      const deleteId = Number(event.target.id);
-      await deleteDeck(deleteId);
-      const deckies = decks.filter((deck) => {
-        return deck.id !== deleteId;
-      });
-      setDecks([...deckies]);
-    }
-  };
-
   // header with everything else nested under it in a <Switch>
   // Home, Study, NewDeck, Deck(view), NotFound
   return (
@@ -46,7 +32,7 @@ function Layout() {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <DecksHome decks={decks} handleClick={handleClick} />
+            <DecksHome decks={decks} setDecks={setDecks} />
           </Route>
           <Route path="/decks/:deckId/study">
             <Study />

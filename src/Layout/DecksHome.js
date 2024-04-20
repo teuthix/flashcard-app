@@ -1,8 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteDeck } from "../utils/api";
 import "./index.css";
 
-function DecksHome({ decks, handleClick }) {
+function DecksHome({ decks, setDecks }) {
+  // handles clicking delete, warning message pops up
+  // sets deck to new array of decks with deleted id deck filtered out
+  const handleClick = async (event) => {
+    const text = "Delete this deck?\n\nYou will not be able to recover is.";
+    if (window.confirm(text)) {
+      const deleteId = Number(event.target.id);
+      await deleteDeck(deleteId);
+      const deckies = decks.filter((deck) => {
+        return deck.id !== deleteId;
+      });
+      setDecks([...deckies]);
+    }
+  };
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     return (
