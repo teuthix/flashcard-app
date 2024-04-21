@@ -1,7 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { deleteDeck } from "../utils/api";
 
-function DeckDisplay({ deck, deleteHandler }) {
+function DeckDisplay({ deck, setDecks }) {
+  const history = useHistory();
+
+  const deleteHandler = async (e) => {
+    const text = "Delete this deck?\n\nYou will not be able to recover is.";
+    if (window.confirm(text)) {
+      const deleteId = Number(e.target.id);
+      await deleteDeck(deleteId);
+      setDecks((currentDecks) =>
+        currentDecks.filter((deck) => deck.id !== deleteId)
+      );
+    }
+    history.push("/");
+  };
+
   return (
     <>
       <nav aria-label="breadcrumb">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useParams, useHistory } from "react-router-dom";
-import { readDeck, deleteDeck } from "../utils/api";
+import { Switch, Route, useParams } from "react-router-dom";
+import { readDeck } from "../utils/api";
 import EditDeck from "./EditDeck";
 import NewCard from "../Cards/NewCard";
 import CardList from "../Cards/CardList";
@@ -11,7 +11,6 @@ function Deck({ setDecks }) {
   const param = useParams().deckId;
   const [deck, setDeck] = useState({});
   const [cards, setCards] = useState([]);
-  const history = useHistory();
 
   // fetches deck being targeted
   useEffect(() => {
@@ -25,18 +24,6 @@ function Deck({ setDecks }) {
     readingDeck(param);
   }, [param]);
 
-  const deleteHandler = async (e) => {
-    const text = "Delete this deck?\n\nYou will not be able to recover is.";
-    if (window.confirm(text)) {
-      const deleteId = Number(e.target.id);
-      await deleteDeck(deleteId);
-      setDecks((currentDecks) =>
-        currentDecks.filter((deck) => deck.id !== deleteId)
-      );
-    }
-    history.push("/");
-  };
-
   // breadcrumb nav and deck name, description, buttons, and header for cards
 
   // this page is deckDisplay and CardList
@@ -44,7 +31,7 @@ function Deck({ setDecks }) {
   return (
     <Switch>
       <Route exact path="/decks/:deckId">
-        <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
+        <DeckDisplay deck={deck} setDecks={setDecks} />
         {cards.length ? (
           <>
             <CardList cards={cards} deckId={param} setCards={setCards} />
