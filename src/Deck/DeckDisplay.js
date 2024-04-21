@@ -1,22 +1,8 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { deleteDeck } from "../utils/api";
 
-function DeckDisplay({ deck, setDecks }) {
+function DeckDisplay({ deck, deleteHandler }) {
   const history = useHistory();
-
-  const deleteHandler = async (e) => {
-    const text = "Delete this deck?\n\nYou will not be able to recover is.";
-    if (window.confirm(text)) {
-      const deleteId = Number(e.target.id);
-      await deleteDeck(deleteId);
-      setDecks((currentDecks) =>
-        currentDecks.filter((deck) => deck.id !== deleteId)
-      );
-    }
-    history.push("/");
-  };
-
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -33,21 +19,27 @@ function DeckDisplay({ deck, setDecks }) {
         <h5>{deck.name}</h5>
         <p>{deck.description}</p>
       </header>
-      <Link to={`/decks/${deck.id}/edit`}>
-        <button type="button" className="btn btn-secondary me-2">
-          Edit
-        </button>
-      </Link>
-      <Link to={`/decks/${deck.id}/study`}>
-        <button type="button" className="btn btn-primary">
-          Study
-        </button>
-      </Link>
-      <Link to={`/decks/${deck.id}/cards/new`}>
-        <button type="button" className="btn btn-primary">
-          + Add Cards
-        </button>
-      </Link>
+      <button
+        type="button"
+        className="btn btn-secondary me-2"
+        onClick={() => history.push(`/decks/${deck.id}/edit`)}
+      >
+        Edit
+      </button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={() => history.push(`/decks/${deck.id}/study`)}
+      >
+        Study
+      </button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={() => history.push(`/decks/${deck.id}/cards/new`)}
+      >
+        + Add Cards
+      </button>
       <button
         type="button"
         id={deck.id}

@@ -11,11 +11,6 @@
       "id": 2
     },
     {
-      "name": "edit card",
-      "description": "test reststsets",
-      "id": 3
-    },
-    {
       "name": "test",
       "description": "test deck",
       "id": 4
@@ -68,24 +63,6 @@
       "back": "b",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "front": "test card 1 test",
-      "back": "descript try again23",
-      "deckId": 3,
-      "id": 8
-    },
-    {
-      "front": "test card 222222",
-      "back": "descript2lkmkm",
-      "deckId": 3,
-      "id": 9
-    },
-    {
-      "front": "test",
-      "back": "test",
-      "deckId": 3,
-      "id": 10
     }
   ]
 }

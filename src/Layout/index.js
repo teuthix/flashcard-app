@@ -6,6 +6,11 @@ import Study from "../Study/Study";
 import NewDeck from "../Deck/NewDeck";
 import Deck from "../Deck/Deck";
 import DecksHome from "./DecksHome";
+import EditDeck from "../Deck/EditDeck";
+import NewCard from "../Cards/NewCard";
+import CardList from "../Cards/CardList";
+import CardEdit from "../Cards/CardEdit";
+// import DeckDisplay from "../Deck/DeckDisplay";
 import { Switch, Route } from "react-router-dom";
 
 import "./index.css";
@@ -29,25 +34,37 @@ function Layout() {
   return (
     <>
       <Header />
-      <div className="container">
-        <Switch>
-          <Route exact path="/">
-            <DecksHome decks={decks} setDecks={setDecks} />
-          </Route>
-          <Route path="/decks/:deckId/study">
-            <Study />
-          </Route>
-          <Route path="/decks/new">
-            <NewDeck decks={decks} setDecks={setDecks} />
-          </Route>
-          <Route path="/decks/:deckId">
-            <Deck setDecks={setDecks} />
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-      </div>
+      {/* <div className="container"> */}
+      <Switch>
+        <Route exact path="/">
+          <DecksHome decks={decks} setDecks={setDecks} />
+        </Route>
+        <Route path="/decks/:deckId/study">
+          <Study />
+        </Route>
+        <Route path="/decks/new">
+          <NewDeck decks={decks} setDecks={setDecks} />
+        </Route>
+        <Route exact path="/decks/:deckId">
+          <Deck setDecks={setDecks} />
+        </Route>
+        {/* <Route exact path="/decks/:deckId">
+          <DeckDisplay setDecks={setDecks} />
+        </Route> */}
+        <Route path="/decks/:deckId/edit">
+          <EditDeck />
+        </Route>
+        <Route path="/decks/:deckId/cards/new">
+          <NewCard />
+        </Route>
+        <Route path="/decks/:deckId/cards/:cardId/edit">
+          <CardEdit />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+      {/* </div> */}
     </>
   );
 }
