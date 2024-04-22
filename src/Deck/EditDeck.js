@@ -1,34 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { updateDeck } from "../utils/api";
+import { Link, useHistory, useParams } from "react-router-dom";
+import { updateDeck, readDeck } from "../utils/api";
+import FormDeck from "./FormDeck";
 
-function EditDeck({ deck, setDeck }) {
-  const [formData, setFormData] = useState({
-    name: deck.name,
-    description: deck.description,
-    id: deck.id,
-    cards: [],
-  });
+function EditDeck() {
+  const param = useParams().deckId;
+  const [deck, setDeck] = useState({});
   const history = useHistory();
 
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    id: "",
+    cards: [],
+  });
+
+  // fetches deck being targeted
   useEffect(() => {
-    setFormData(deck);
-  }, [deck]);
+    async function readingDeck(param) {
+      try {
+        const response = await readDeck(param);
+        setDeck(response);
+        setFormData(response);
+        // console.log(formData);
+      } catch {}
+    }
+    readingDeck(param);
+  }, [param]);
 
   // if theres any change, update the formData
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   };
 
-  // on submit, set the deck variable to whatever is in formData
-  // use updateDeck to update the deck
-  // history.push sends user to deck page
+  //   on submit, set the deck variable to whatever is in formData
+  //   use updateDeck to update the deck
+  //   history.push sends user to deck page
   const submitHandler = async (event) => {
     event.preventDefault();
     setDeck({ ...formData });
     await updateDeck(deck);
     history.push(`/decks/${deck.id}`);
   };
+
+  //   return <p>etetsdf</p>;
 
   // return breadcrumb nav, and the form to edit the deck
   return (
@@ -47,37 +62,12 @@ function EditDeck({ deck, setDeck }) {
         </ol>
       </nav>
       <h3>Edit Deck</h3>
-      <form onSubmit={submitHandler} className="d-flex flex-column p-2">
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          className="mb-3"
-          placeholder={deck.name}
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          className="mb-3"
-          placeholder={deck.description}
-          value={formData.description}
-          onChange={handleChange}
-        />
-        <div>
-          <Link to={`/decks/${deck.id}`} className="me-2">
-            <button type="button" className="btn btn-secondary">
-              Cancel
-            </button>
-          </Link>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-      </form>
+      <FormDeck
+        formData={formData}
+        handleChange={handleChange}
+        submitHandler={submitHandler}
+        deck={deck}
+      />
     </>
   );
 }
