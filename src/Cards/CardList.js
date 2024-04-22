@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
 function CardList({ cards, deckId, setCards }) {
+  // used in Deck.js to list all cards of the deck
   // deleting turns card into empty object
   const deleteCardHandler = async (e, cardId) => {
     const text = "Delete this deck?\nYou will not be able to recover is.";

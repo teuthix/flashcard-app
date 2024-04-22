@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 import CardForm from "./CardForm";
 
-function NewCard({ cards, setCards }) {
+function NewCard() {
+  // { cards, setCards }
   //initial state of the form is a blank card
   const initialForm = {
     front: "",
@@ -33,8 +34,8 @@ function NewCard({ cards, setCards }) {
   // on submit, use the createCard api and reset newCard to a blank form
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const madeCard = await createCard(Number(decksId), formData);
-    setCards([...cards, madeCard]);
+    await createCard(Number(decksId), formData);
+    // setCards([...cards, madeCard]);
     setFormData({ ...initialForm });
   };
 

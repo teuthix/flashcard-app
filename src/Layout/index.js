@@ -8,7 +8,7 @@ import Deck from "../Deck/Deck";
 import DecksHome from "./DecksHome";
 import EditDeck from "../Deck/EditDeck";
 import NewCard from "../Cards/NewCard";
-import CardList from "../Cards/CardList";
+// import CardList from "../Cards/CardList";
 import CardEdit from "../Cards/CardEdit";
 // import DeckDisplay from "../Deck/DeckDisplay";
 import { Switch, Route } from "react-router-dom";

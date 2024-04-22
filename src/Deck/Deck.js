@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { readDeck } from "../utils/api";
 import DeckDisplay from "./DeckDisplay";
+import CardList from "../Cards/CardList";
 import { deleteDeck } from "../utils/api";
 
 function Deck({ setDecks }) {
@@ -39,7 +40,18 @@ function Deck({ setDecks }) {
 
   // this page is deckDisplay and CardList
   // other pages have stuff passed in like the deck and cards
-  return <DeckDisplay deck={deck} deleteHandler={deleteHandler} />;
+  return (
+    <>
+      <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
+      {cards.length ? (
+        <>
+          <CardList cards={cards} deckId={param} setCards={setCards} />
+        </>
+      ) : (
+        ""
+      )}
+    </>
+  );
 }
 
 export default Deck;
