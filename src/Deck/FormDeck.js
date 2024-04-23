@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function FormDeck({ formData, handleChange, submitHandler, deck }) {
+function FormDeck({ formData, handleChange, submitHandler, deck = "" }) {
   return (
     <form onSubmit={submitHandler} className="d-flex flex-column p-2">
       <label htmlFor="name">Name</label>
@@ -10,7 +10,7 @@ function FormDeck({ formData, handleChange, submitHandler, deck }) {
         type="text"
         name="name"
         className="mb-3"
-        placeholder={deck.name ? deck.name : "Deck Name"}
+        placeholder="Deck Name"
         value={formData.name}
         onChange={handleChange}
       />
@@ -19,7 +19,7 @@ function FormDeck({ formData, handleChange, submitHandler, deck }) {
         id="description"
         name="description"
         className="mb-3"
-        placeholder={deck.description}
+        placeholder="Deck Description"
         value={formData.description}
         onChange={handleChange}
       />

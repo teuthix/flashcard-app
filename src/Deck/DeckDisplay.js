@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
 function DeckDisplay({ deck, deleteHandler }) {
+  // html for /decks/:deckId
   const history = useHistory();
   return (
     <>

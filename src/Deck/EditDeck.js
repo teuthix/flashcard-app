@@ -22,7 +22,6 @@ function EditDeck() {
         const response = await readDeck(param);
         setDeck(response);
         setFormData(response);
-        // console.log(formData);
       } catch {}
     }
     readingDeck(param);
@@ -33,19 +32,14 @@ function EditDeck() {
     setFormData({ ...formData, [target.name]: target.value });
   };
 
-  //   on submit, set the deck variable to whatever is in formData
   //   use updateDeck to update the deck
   //   history.push sends user to deck page
   const submitHandler = async (event) => {
     event.preventDefault();
-    setDeck({ ...formData });
-    await updateDeck(deck);
+    await updateDeck(formData);
     history.push(`/decks/${deck.id}`);
   };
 
-  //   return <p>etetsdf</p>;
-
-  // return breadcrumb nav, and the form to edit the deck
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -66,7 +60,7 @@ function EditDeck() {
         formData={formData}
         handleChange={handleChange}
         submitHandler={submitHandler}
-        deck={deck}
+        deck={formData}
       />
     </>
   );

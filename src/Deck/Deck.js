@@ -12,6 +12,7 @@ function Deck({ setDecks }) {
 
   const history = useHistory();
 
+  // handles deleting a deck
   const deleteHandler = async (e) => {
     const text = "Delete this deck?\n\nYou will not be able to recover is.";
     if (window.confirm(text)) {
@@ -36,10 +37,6 @@ function Deck({ setDecks }) {
     readingDeck(param);
   }, [param]);
 
-  // breadcrumb nav and deck name, description, buttons, and header for cards
-
-  // this page is deckDisplay and CardList
-  // other pages have stuff passed in like the deck and cards
   return (
     <>
       <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
