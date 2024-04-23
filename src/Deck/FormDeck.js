@@ -24,14 +24,29 @@ function FormDeck({ formData, handleChange, submitHandler, deck = "" }) {
         onChange={handleChange}
       />
       <div>
-        <Link to={`/decks/${deck.id}`} className="me-2">
-          <button type="button" className="btn btn-secondary">
-            Cancel
+        {deck.id ? (
+          <Link to={`/decks/${deck.id}`} className="me-2">
+            <button type="button" className="btn btn-secondary">
+              Cancel
+            </button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <button type="button" className="btn btn-secondary">
+              Cancel
+            </button>
+          </Link>
+        )}
+
+        {deck.id ? (
+          <button type="submit" className="btn btn-primary">
+            Submit
           </button>
-        </Link>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        ) : (
+          <button type="submit" className="btn btn-primary">
+            Save
+          </button>
+        )}
       </div>
     </form>
   );

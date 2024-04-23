@@ -21,31 +21,6 @@
       "id": 8
     },
     {
-      "name": "testtt121212",
-      "description": "sdfadfsdx111111111",
-      "id": 9
-    },
-    {
-      "name": "f",
-      "description": "fgdfg",
-      "id": 10
-    },
-    {
-      "name": "jhkjh",
-      "description": "111111111",
-      "id": 11
-    },
-    {
-      "name": "dfsdf",
-      "description": "sgsdf",
-      "id": 12
-    },
-    {
-      "name": "jn",
-      "description": "nmn",
-      "id": 13
-    },
-    {
       "name": ",,,,,,",
       "description": "jjjjjjj",
       "id": 14
@@ -118,6 +93,12 @@
       "back": "wefsdfd",
       "deckId": 4,
       "id": 12
+    },
+    {
+      "front": "rgsrgf",
+      "back": "dfdf",
+      "deckId": 8,
+      "id": 13
     }
   ]
 }
