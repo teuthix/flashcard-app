@@ -21,8 +21,9 @@ function NewDeck({ decks, setDecks }) {
   // on clicking submit, create new deck from formData
   const submitHandler = async (event) => {
     event.preventDefault();
-    await createDeck(formData);
-    history.push(`/decks/${formData.id}`);
+    let newDeck = await createDeck(formData);
+    console.log(newDeck);
+    history.push(`/decks/${newDeck.id}`);
   };
 
   return (
