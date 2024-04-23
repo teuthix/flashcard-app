@@ -4,7 +4,6 @@ import { readDeck, createCard } from "../utils/api";
 import CardForm from "./CardForm";
 
 function NewCard() {
-  // { cards, setCards }
   //initial state of the form is a blank card
   const initialForm = {
     front: "",
@@ -18,10 +17,8 @@ function NewCard() {
   // fetch deck being targeted
   useEffect(() => {
     async function fetchDeck(decksId) {
-      try {
-        const response = await readDeck(decksId);
-        setDeck(response);
-      } catch {}
+      const response = await readDeck(decksId);
+      setDeck(response);
     }
     fetchDeck(decksId);
   }, [decksId]);
@@ -35,7 +32,6 @@ function NewCard() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await createCard(Number(decksId), formData);
-    // setCards([...cards, madeCard]);
     setFormData({ ...initialForm });
   };
 

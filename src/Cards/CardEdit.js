@@ -15,10 +15,8 @@ function CardEdit() {
   // fetches deck being targeted
   useEffect(() => {
     async function readingDeck(deckId) {
-      try {
-        const response = await readDeck(deckId);
-        setDeck(response);
-      } catch {}
+      const response = await readDeck(deckId);
+      setDeck(response);
     }
     readingDeck(deckId);
   }, [deckId]);
@@ -26,11 +24,9 @@ function CardEdit() {
   // REQUIRED fetches targeted card which fills in form initially
   useEffect(() => {
     async function fetchCard(cardId) {
-      try {
-        const response = await readCard(cardId);
-        setEditCard(response);
-        setFormData({ ...response });
-      } catch {}
+      const response = await readCard(cardId);
+      setEditCard(response);
+      setFormData({ ...response });
     }
     fetchCard(cardId);
   }, [cardId]);

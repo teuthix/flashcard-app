@@ -18,22 +18,11 @@ function Layout() {
 
   // fetches list of decks to be displayed
   useEffect(() => {
-    const abortController = new AbortController();
     async function fetchDecks() {
-      try {
-        const response = await listDecks();
-        setDecks(response);
-      } catch (error) {
-        if (error.name === "AbortError") {
-          // Ignore `AbortError`
-          console.log("Aborted");
-        } else {
-          throw error;
-        }
-      }
+      const response = await listDecks();
+      setDecks(response);
     }
     fetchDecks();
-    return () => abortController.abort();
   }, []);
 
   // header with everything else nested under it in a <Switch>

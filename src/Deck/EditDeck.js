@@ -18,11 +18,9 @@ function EditDeck() {
   // fetches deck being targeted
   useEffect(() => {
     async function readingDeck(param) {
-      try {
-        const response = await readDeck(param);
-        setDeck(response);
-        setFormData(response);
-      } catch {}
+      const response = await readDeck(param);
+      setDeck(response);
+      setFormData(response);
     }
     readingDeck(param);
   }, [param]);
