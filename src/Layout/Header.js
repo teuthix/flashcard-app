@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    // <header className="jumbotron bg-dark">
     <header className="d-flex bg-dark mb-4 p-4">
       <div className="container">
         <div className=" text-white">

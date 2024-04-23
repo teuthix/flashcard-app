@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 function CardForm({ formData, handleChange, handleSubmit }) {
   const params = useParams();
   const { deckId, cardId } = params;
-  // const { deckId } = params;
 
   return (
     <>

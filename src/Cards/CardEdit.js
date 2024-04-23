@@ -4,27 +4,24 @@ import { readDeck, readCard, updateCard } from "../utils/api";
 import CardForm from "./CardForm";
 
 function CardEdit() {
-  // { deck, setCards }
-  const cardId = useParams().cardId;
-  const param = useParams().deckId;
+  const params = useParams();
+  const { deckId, cardId } = params;
   const [editCard, setEditCard] = useState([]);
   const [deck, setDeck] = useState({});
+  const [formData, setFormData] = useState({});
 
   const history = useHistory();
 
-  const [formData, setFormData] = useState({});
-
   // fetches deck being targeted
   useEffect(() => {
-    async function readingDeck(param) {
+    async function readingDeck(deckId) {
       try {
-        const response = await readDeck(param);
+        const response = await readDeck(deckId);
         setDeck(response);
-        // setCards(response.cards);
       } catch {}
     }
-    readingDeck(param);
-  }, [param]);
+    readingDeck(deckId);
+  }, [deckId]);
 
   // REQUIRED fetches targeted card which fills in form initially
   useEffect(() => {
@@ -41,23 +38,11 @@ function CardEdit() {
   // on change, update the formData
   const handleChange = ({ target }) => {
     setFormData({ ...editCard, [target.name]: target.value });
-    // console.log(formData);
   };
 
-  // find card by id, remove old, add new
-  // if id === edit id, return edited card, else returns card
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updateCard(formData);
-    // setCards((currentCards) =>
-    //   currentCards.map((eaCard) => {
-    //     if (eaCard.id === editCard.id) {
-    //       return formData;
-    //     } else {
-    //       return eaCard;
-    //     }
-    //   })
-    // );
     history.push(`/decks/${deck.id}`);
   };
 

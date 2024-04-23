@@ -8,7 +8,6 @@ function CardList({ cards, deckId, setCards }) {
   const deleteCardHandler = async (e, cardId) => {
     const text = "Delete this deck?\nYou will not be able to recover is.";
     const cardIdToDelete = e.target.id;
-    // console.log(cardId);
     if (window.confirm(text)) {
       if (cardIdToDelete) {
         await deleteCard(cardId);
@@ -21,7 +20,6 @@ function CardList({ cards, deckId, setCards }) {
 
   // map cards, returning a card(bootstrap) with each card's information
   const eachCard = cards.map((eaCard, index) => {
-    // console.log(eaCard, "anything");
     return (
       <div className="card d-flex flex-column p-4" key={index}>
         <div className="d-flex justify-content-between">

@@ -8,9 +8,7 @@ import Deck from "../Deck/Deck";
 import DecksHome from "./DecksHome";
 import EditDeck from "../Deck/EditDeck";
 import NewCard from "../Cards/NewCard";
-// import CardList from "../Cards/CardList";
 import CardEdit from "../Cards/CardEdit";
-// import DeckDisplay from "../Deck/DeckDisplay";
 import { Switch, Route } from "react-router-dom";
 
 import "./index.css";
@@ -20,13 +18,22 @@ function Layout() {
 
   // fetches list of decks to be displayed
   useEffect(() => {
+    const abortController = new AbortController();
     async function fetchDecks() {
       try {
         const response = await listDecks();
         setDecks(response);
-      } catch (error) {}
+      } catch (error) {
+        if (error.name === "AbortError") {
+          // Ignore `AbortError`
+          console.log("Aborted");
+        } else {
+          throw error;
+        }
+      }
     }
     fetchDecks();
+    return () => abortController.abort();
   }, []);
 
   // header with everything else nested under it in a <Switch>
