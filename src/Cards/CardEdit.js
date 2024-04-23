@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import { readCard, updateCard } from "../utils/api";
+import { readDeck, readCard, updateCard } from "../utils/api";
 import CardForm from "./CardForm";
 
-function CardEdit({ deck, setCards }) {
+function CardEdit() {
+  // { deck, setCards }
   const cardId = useParams().cardId;
+  const param = useParams().deckId;
   const [editCard, setEditCard] = useState([]);
+  const [deck, setDeck] = useState({});
+
   const history = useHistory();
 
   const [formData, setFormData] = useState({});
+
+  // fetches deck being targeted
+  useEffect(() => {
+    async function readingDeck(param) {
+      try {
+        const response = await readDeck(param);
+        setDeck(response);
+        // setCards(response.cards);
+      } catch {}
+    }
+    readingDeck(param);
+  }, [param]);
+
   // REQUIRED fetches targeted card which fills in form initially
   useEffect(() => {
     async function fetchCard(cardId) {
@@ -32,15 +49,15 @@ function CardEdit({ deck, setCards }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updateCard(formData);
-    setCards((currentCards) =>
-      currentCards.map((eaCard) => {
-        if (eaCard.id === editCard.id) {
-          return formData;
-        } else {
-          return eaCard;
-        }
-      })
-    );
+    // setCards((currentCards) =>
+    //   currentCards.map((eaCard) => {
+    //     if (eaCard.id === editCard.id) {
+    //       return formData;
+    //     } else {
+    //       return eaCard;
+    //     }
+    //   })
+    // );
     history.push(`/decks/${deck.id}`);
   };
 
