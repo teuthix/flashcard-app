@@ -41,13 +41,11 @@ function NewDeck() {
         </nav>
         <h2>Create Deck</h2>
       </div>
-      {/* <div className="mx-4"> */}
       <FormDeck
         formData={formData}
         handleChange={handleChange}
         submitHandler={submitHandler}
       />
-      {/* </div> */}
     </>
   );
 }
