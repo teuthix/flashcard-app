@@ -13,7 +13,7 @@ function EnoughCards({ deck, numCard, setNumCard, numberOfCards }) {
   };
 
   return (
-    <div className="customForm">
+    <div className="studyCard">
       <div className="card p-4">
         {
           <h3>

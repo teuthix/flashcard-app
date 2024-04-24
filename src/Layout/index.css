@@ -1,3 +1,9 @@
+header {
+  background-color: slategray;
+  margin-bottom: 5%;
+  padding: 5%;
+}
+
 .border-thick {
     border-width: 40px;
 
@@ -10,16 +16,35 @@
   }
 
   .item {
-    width: 45%;
+    width: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
     padding-bottom: 32%; /* Same as width, sets height */
-    margin-bottom: 2%; /* (100-32*3)/2 */
     position: relative;
+  }
+
+  .studyCard {
+    margin: 5%;
   }
 
   @media all and (min-width: 800px) {
     /* body {
       background-color: bisque;
     } */
+
+    header {
+      background-color: slategray;
+      margin-bottom: 4%;
+      padding: 3%;
+      /* mb-4 p-5 */
+    }
+
+    .item {
+      width: 45%;
+      padding-bottom: 32%; /* Same as width, sets height */
+      margin-bottom: 2%; /* (100-32*3)/2 */
+      position: relative;
+    }
 
     .container {
         display: flex;
@@ -34,7 +59,7 @@
         position: relative;
       }
 
-      .customForm {
+      .customForm, .studyCard {
         width: 50%;
         margin: 0 auto;
       }
