@@ -74,17 +74,29 @@ header {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-      }
+    }
     
-      .item {
-        width: 45%;
-        padding-bottom: 32%; /* Same as width, sets height */
-        margin-bottom: 2%; /* (100-32*3)/2 */
-        position: relative;
-      }
+    .item {
+      width: 45%;
+      padding-bottom: 32%; /* Same as width, sets height */
+      margin-bottom: 2%; /* (100-32*3)/2 */
+      position: relative;
+    }
 
-      .customForm, .studyCard {
-        width: 50%;
-        margin: 0 auto;
-      }
+    .customForm  {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .studyCard{
+      border-radius: 50px;
+    }
+
+    .rcorners3 {
+      border-radius: 15px 50px;
+      /* background: #73AD21; */
+      /* padding: 20px;
+      width: 200px;
+      height: 150px; */
+    }
   }
