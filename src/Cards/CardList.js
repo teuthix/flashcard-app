@@ -21,18 +21,18 @@ function CardList({ cards, deckId, setCards }) {
   // map cards, returning a card(bootstrap) with each card's information
   const eachCard = cards.map((eaCard, index) => {
     return (
-      <div className="card d-flex flex-column p-4" key={index}>
-        <div className="d-flex justify-content-between">
+      <div className="card d-flex p-2 mb-3 item" key={index}>
+        <div className="p-3">
           <div>{eaCard.front}</div>
           <div>{eaCard.back}</div>
         </div>
-        <div className="d-flex justify-content-end pt-2">
+        <div className="d-flex justify-content-end p-2">
           <Link to={`/decks/${deckId}/cards/${eaCard.id}/edit`}>
             <button type="button" className="btn btn-secondary">
               Edit
             </button>
           </Link>
-          <div>
+          <div className="ps-2">
             <button
               type="button"
               id={eaCard.id}
@@ -47,7 +47,11 @@ function CardList({ cards, deckId, setCards }) {
     );
   });
 
-  return eachCard;
+  return (
+    <div className="d-flex flex-row mt-5">
+      <div className="container">{eachCard}</div>
+    </div>
+  );
 }
 
 export default CardList;
