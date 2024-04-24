@@ -21,7 +21,7 @@ function DecksHome({ decks, setDecks }) {
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     return (
-      <div className="card d-flex p-4 mb-3 item rcorners3" key={deck.id}>
+      <div className="card d-flex p-4 mb-4 item rcorners3" key={deck.id}>
         <div className="card-body">
           <h5 className="card-title">{deck.name}</h5>
           <h6 className="card-subtitle">

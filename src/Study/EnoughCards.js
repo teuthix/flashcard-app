@@ -26,7 +26,7 @@ function EnoughCards({ deck, numCard, setNumCard, numberOfCards }) {
           <button
             type="button"
             onClick={handleFlip}
-            className="btn btn-primary"
+            className="btn btn-primary me-2"
           >
             Flip
           </button>
