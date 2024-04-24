@@ -56,14 +56,12 @@ function EditDeck() {
         </nav>
         <h2>Edit Deck</h2>
       </div>
-      {/* <div> */}
       <FormDeck
         formData={formData}
         handleChange={handleChange}
         submitHandler={submitHandler}
         deck={formData}
       />
-      {/* </div> */}
     </>
   );
 }

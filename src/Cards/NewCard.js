@@ -38,20 +38,22 @@ function NewCard() {
   // return a breadcrumb nav and a form
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="breadcrumb-item">
-            <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Add Card
-          </li>
-        </ol>
-      </nav>
-      <h3>{deck.name}: Add Card</h3>
+      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item">
+              <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Add Card
+            </li>
+          </ol>
+        </nav>
+        <h3>{deck.name}: Add Card</h3>
+      </div>
       <CardForm
         formData={formData}
         handleChange={handleChange}

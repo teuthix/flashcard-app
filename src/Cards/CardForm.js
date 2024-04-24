@@ -7,27 +7,31 @@ function CardForm({ formData, handleChange, handleSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="d-flex flex-column p-2">
-        <label htmlFor="front">Front</label>
+      <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
+        <label htmlFor="front" className="customForm">
+          Front
+        </label>
         <textarea
           id="front"
           name="front"
-          className="mb-3"
+          className="mb-3 customForm"
           placeholder="Front side of card"
           value={formData.front}
           onChange={handleChange}
         />
-        <label htmlFor="back">Back</label>
+        <label htmlFor="back" className="customForm">
+          Back
+        </label>
         <textarea
           id="back"
           name="back"
-          className="mb-3"
+          className="mb-3 customForm"
           placeholder="Back side of card"
           value={formData.back}
           onChange={handleChange}
         />
-        <div>
-          <Link to={`/decks/${deckId}`}>
+        <div className="d-flex justify-content-center">
+          <Link to={`/decks/${deckId}`} className="me-2">
             <button type="button" className="btn btn-secondary">
               Done
             </button>
