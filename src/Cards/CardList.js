@@ -18,10 +18,22 @@ function CardList({ cards, deckId, setCards }) {
     }
   };
 
+  let count = 0;
+  let cardStyle;
+
   // map cards, returning each card's information
   const eachCard = cards.map((eaCard, index) => {
+    count++;
+    // if odd, 15 50, if even 50, 15
+    if (count % 2) {
+      // there is a remainder / count is odd
+      cardStyle = "rcorners3";
+    } else {
+      cardStyle = "reversercorner";
+    }
+
     return (
-      <div className="card d-flex p-4 mb-3 item rcorners3" key={index}>
+      <div className={`card d-flex p-4 mb-3 item ${cardStyle}`} key={index}>
         <div className="p-3">
           <div>{eaCard.front}</div>
           <div>{eaCard.back}</div>

@@ -6,26 +6,22 @@ function CardForm({ formData, handleChange, handleSubmit }) {
   const { deckId, cardId } = params;
 
   return (
-    <>
+    <div className="card p-5 px-6 customForm allRoundCard">
       <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
-        <label htmlFor="front" className="customForm">
-          Front
-        </label>
+        <label htmlFor="front">Front</label>
         <textarea
           id="front"
           name="front"
-          className="mb-3 customForm"
+          className="mb-3"
           placeholder="Front side of card"
           value={formData.front}
           onChange={handleChange}
         />
-        <label htmlFor="back" className="customForm">
-          Back
-        </label>
+        <label htmlFor="back">Back</label>
         <textarea
           id="back"
           name="back"
-          className="mb-3 customForm"
+          className="mb-3"
           placeholder="Back side of card"
           value={formData.back}
           onChange={handleChange}
@@ -47,7 +43,7 @@ function CardForm({ formData, handleChange, handleSubmit }) {
           )}
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

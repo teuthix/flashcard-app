@@ -18,10 +18,22 @@ function DecksHome({ decks, setDecks }) {
     }
   };
 
+  let count = 0;
+  let cardStyle;
+
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
+    count++;
+    // if odd, 15 50, if even 50, 15
+    if (count % 2) {
+      // there is a remainder / count is odd
+      cardStyle = "rcorners3";
+    } else {
+      cardStyle = "reversercorner";
+    }
+
     return (
-      <div className="card d-flex p-4 mb-4 item rcorners3" key={deck.id}>
+      <div className={`card d-flex p-4 mb-4 item ${cardStyle}`} key={deck.id}>
         <div className="card-body">
           <h5 className="card-title">{deck.name}</h5>
           <h6 className="card-subtitle">
