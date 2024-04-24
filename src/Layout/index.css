@@ -17,6 +17,10 @@
   }
 
   @media all and (min-width: 800px) {
+    /* body {
+      background-color: bisque;
+    } */
+
     .container {
         display: flex;
         flex-wrap: wrap;
@@ -28,5 +32,10 @@
         padding-bottom: 32%; /* Same as width, sets height */
         margin-bottom: 2%; /* (100-32*3)/2 */
         position: relative;
+      }
+
+      .customForm {
+        width: 50%;
+        margin: 0 auto;
       }
   }

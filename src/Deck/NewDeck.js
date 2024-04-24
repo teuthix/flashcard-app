@@ -4,7 +4,7 @@ import { createDeck } from "../utils/api";
 import FormDeck from "./FormDeck";
 
 // decks is all decks being rendered from index
-function NewDeck({ decks, setDecks }) {
+function NewDeck() {
   const initialForm = {
     name: "",
     description: "",
@@ -28,22 +28,26 @@ function NewDeck({ decks, setDecks }) {
 
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Create Deck
-          </li>
-        </ol>
-      </nav>
-      <h3>Create Deck</h3>
+      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Create Deck
+            </li>
+          </ol>
+        </nav>
+        <h2>Create Deck</h2>
+      </div>
+      {/* <div className="mx-4"> */}
       <FormDeck
         formData={formData}
         handleChange={handleChange}
         submitHandler={submitHandler}
       />
+      {/* </div> */}
     </>
   );
 }

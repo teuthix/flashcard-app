@@ -6,7 +6,7 @@ function DeckDisplay({ deck, deleteHandler }) {
   const history = useHistory();
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center  m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center m-4">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">

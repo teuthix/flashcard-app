@@ -40,26 +40,30 @@ function EditDeck() {
 
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="breadcrumb-item">
-            <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Edit Deck
-          </li>
-        </ol>
-      </nav>
-      <h3>Edit Deck</h3>
+      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item">
+              <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Edit Deck
+            </li>
+          </ol>
+        </nav>
+        <h2>Edit Deck</h2>
+      </div>
+      {/* <div> */}
       <FormDeck
         formData={formData}
         handleChange={handleChange}
         submitHandler={submitHandler}
         deck={formData}
       />
+      {/* </div> */}
     </>
   );
 }
