@@ -28,7 +28,7 @@ function CardList({ cards, deckId, setCards }) {
         </div>
         <div className="d-flex justify-content-end p-2">
           <Link to={`/decks/${deckId}/cards/${eaCard.id}/edit`}>
-            <button type="button" className="btn btn-secondary">
+            <button type="button" className="btn btn-primary">
               Edit
             </button>
           </Link>

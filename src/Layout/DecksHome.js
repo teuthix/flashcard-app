@@ -31,7 +31,7 @@ function DecksHome({ decks, setDecks }) {
           <div className="d-flex justify-content-between">
             <div>
               <Link to={`/decks/${deck.id}`} className="me-2">
-                <button type="button" className="btn btn-secondary">
+                <button type="button" className="btn btn-primary">
                   View
                 </button>
               </Link>

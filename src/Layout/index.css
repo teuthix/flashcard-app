@@ -1,5 +1,5 @@
 header {
-  background-color: slategray;
+  background-color: #ff9a42;
   margin-bottom: 5%;
   padding: 5%;
 }
@@ -28,15 +28,39 @@ header {
   }
 
   @media all and (min-width: 800px) {
-    /* body {
-      background-color: bisque;
-    } */
+    body {
+      background-color: #f8f2e8;
+    }
 
     header {
-      background-color: slategray;
+      background-color: #ff6b42;
       margin-bottom: 4%;
       padding: 3%;
       /* mb-4 p-5 */
+    }
+    
+    .btn-primary {
+      background-color: #739159;
+      border: #739159;
+    }
+
+    .btn-primary:hover, .btn-primary:active{
+      background-color: #526d3a !important;
+    }
+
+    .btn-secondary {
+      background-color: #f8f2e8;
+      color: #739159;
+      border: #739159;
+    }
+
+    .btn-secondary:hover, .btn-secondary:active {
+      background-color: #c6b79c !important;
+    }
+
+    .btn-danger {
+      background-color: #ff6b42;
+      border: #ff6b42;
     }
 
     .item {

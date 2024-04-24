@@ -26,7 +26,7 @@ function EnoughCards({ deck, numCard, setNumCard, numberOfCards }) {
           <button
             type="button"
             onClick={handleFlip}
-            className="btn btn-secondary"
+            className="btn btn-primary"
           >
             Flip
           </button>
@@ -39,7 +39,6 @@ function EnoughCards({ deck, numCard, setNumCard, numberOfCards }) {
                 if (numCard < numberOfCards - 1) {
                   setNumCard(numCard + 1);
                   setFlipped(false);
-                  console.log(numCard);
                 } else {
                   if (window.confirm(text) === true) {
                     history.go(0);

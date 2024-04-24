@@ -12,7 +12,7 @@ function Header() {
           <p className="lead">Discover The Flashcard Difference.</p>
         </div>
         <Link to="/decks/new" className="align-self-center">
-          <button type="button" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary btn-lg">
             + Create Deck
           </button>
         </Link>
