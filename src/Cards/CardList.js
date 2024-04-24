@@ -18,7 +18,7 @@ function CardList({ cards, deckId, setCards }) {
     }
   };
 
-  // map cards, returning a card(bootstrap) with each card's information
+  // map cards, returning each card's information
   const eachCard = cards.map((eaCard, index) => {
     return (
       <div className="card d-flex p-2 mb-3 item" key={index}>

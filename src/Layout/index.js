@@ -26,11 +26,9 @@ function Layout() {
   }, []);
 
   // header with everything else nested under it in a <Switch>
-  // Home, Study, NewDeck, Deck(view), NotFound
   return (
     <>
       <Header />
-      {/* <div className="container"> */}
       <Switch>
         <Route exact path="/">
           <DecksHome decks={decks} setDecks={setDecks} />
@@ -44,9 +42,6 @@ function Layout() {
         <Route exact path="/decks/:deckId">
           <Deck setDecks={setDecks} />
         </Route>
-        {/* <Route exact path="/decks/:deckId">
-          <DeckDisplay setDecks={setDecks} />
-        </Route> */}
         <Route path="/decks/:deckId/edit">
           <EditDeck />
         </Route>
@@ -60,7 +55,6 @@ function Layout() {
           <NotFound />
         </Route>
       </Switch>
-      {/* </div> */}
     </>
   );
 }

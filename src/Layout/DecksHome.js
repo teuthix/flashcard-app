@@ -17,6 +17,7 @@ function DecksHome({ decks, setDecks }) {
       setDecks([...deckies]);
     }
   };
+
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     return (
@@ -29,7 +30,7 @@ function DecksHome({ decks, setDecks }) {
           <p className="card-text">{deck.description}</p>
           <div className="d-flex justify-content-between">
             <div>
-              <Link to={`/decks/${deck.id}`}>
+              <Link to={`/decks/${deck.id}`} className="me-2">
                 <button type="button" className="btn btn-secondary">
                   View
                 </button>
@@ -56,9 +57,6 @@ function DecksHome({ decks, setDecks }) {
 
   return (
     <div className="d-flex flex-row">
-      {/* <h3 className="border border-5 p-4 mx-5 w-25 align-self-start">
-        All Decks
-      </h3> */}
       <div className="container">{eachDeck}</div>
     </div>
   );

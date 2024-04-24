@@ -16,7 +16,6 @@ function Study() {
       setDeck(response);
     }
     readingDeck(param);
-    // console.log(readingDeck(param));
   }, [param]);
 
   const numberOfCards = deck.cards ? deck.cards.length : 0;

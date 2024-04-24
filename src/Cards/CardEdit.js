@@ -21,7 +21,7 @@ function CardEdit() {
     readingDeck(deckId);
   }, [deckId]);
 
-  // REQUIRED fetches targeted card which fills in form initially
+  // fetches targeted card which fills in form initially
   useEffect(() => {
     async function fetchCard(cardId) {
       const response = await readCard(cardId);
@@ -36,6 +36,7 @@ function CardEdit() {
     setFormData({ ...editCard, [target.name]: target.value });
   };
 
+  // on submit, updateCard api called and pushed to /decks/:deckId
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updateCard(formData);
