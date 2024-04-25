@@ -23,7 +23,7 @@ function Layout() {
       setDecks(response);
     }
     fetchDecks();
-  }, []);
+  }, [decks]);
 
   // header with everything else nested under it in a <Switch>
   return (
