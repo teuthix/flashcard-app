@@ -36,6 +36,7 @@ function CardList({ cards, deckId, setCards }) {
       <div className={`card d-flex p-4 mb-3 item ${cardStyle}`} key={index}>
         <div className="p-3">
           <div>{eaCard.front}</div>
+          <hr />
           <div>{eaCard.back}</div>
         </div>
         <div className="d-flex justify-content-end p-2">

@@ -8,27 +8,31 @@ function CardForm({ formData, handleChange, handleSubmit }) {
   return (
     <div className="card p-5 px-6 customForm allRoundCard">
       <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
-        <label htmlFor="front">Front</label>
+        <label htmlFor="front" className="form-label">
+          Front
+        </label>
         <textarea
           id="front"
           name="front"
-          className="mb-3"
+          className="mb-3 form-control"
           placeholder="Front side of card"
           value={formData.front}
           onChange={handleChange}
         />
-        <label htmlFor="back">Back</label>
+        <label htmlFor="back" className="form-label">
+          Back
+        </label>
         <textarea
           id="back"
           name="back"
-          className="mb-3"
+          className="mb-3 form-control"
           placeholder="Back side of card"
           value={formData.back}
           onChange={handleChange}
         />
         <div className="d-flex justify-content-center">
           <Link to={`/decks/${deckId}`} className="me-2">
-            <button type="button" className="btn btn-secondary">
+            <button type="button" className="btn btn-secondary btn-border">
               Done
             </button>
           </Link>

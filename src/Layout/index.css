@@ -24,10 +24,27 @@ body {
   border-color: #f8f2e8;
 }
 
-.rcorners3 {
+.btn-border {
+  border-width: 2px;
+  border-color: #739159;
+}
+
+.rcorners3, .reversercorner {
   border-radius: 50px;
   border-color: #526d3a;
   border-width: 4px;
+}
+
+.customForm  {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.allRoundCard{
+  border-radius: 50px;
+  border-color: #526d3a;
+  border-width: 4px;
+  margin: 5%;
 }
 
 .border-thick {
@@ -76,8 +93,12 @@ body {
 
     .btn-secondary {
       background-color: #f8f2e8;
-      color: #739159;
-      border-color: #f8f2e8;
+      color: #526d3a;
+    }
+
+    .btn-border {
+      border-width: 2px;
+      border-color: #739159;
     }
 
     .btn-secondary:hover, .btn-secondary:active {
@@ -113,6 +134,7 @@ body {
     .customForm  {
       width: 50%;
       margin: 0 auto;
+      padding: 5%;
     }
 
     .allRoundCard{
@@ -131,5 +153,14 @@ body {
       border-radius: 50px 15px ;
       border-color: #526d3a;
       border-width: 4px;
+    }
+
+    .card-subtitle {
+      color: #739159;
+    }
+
+    /* doesnt work */
+    .breadcrumb-item, .active {
+      color: #739159;
     }
   }
