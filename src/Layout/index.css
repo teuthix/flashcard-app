@@ -148,10 +148,15 @@ body {
       padding: 5%;
     }
 
-    .allRoundCard{
+    .allRoundCard {
       border-radius: 50px;
       border-color: #526d3a;
       border-width: 4px;
+    }
+
+    .studyCard {
+      width: 50%;
+      margin: 0 auto;
     }
 
     .rcorners3 {

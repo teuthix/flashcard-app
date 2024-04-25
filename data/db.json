@@ -11,19 +11,9 @@
       "id": 2
     },
     {
-      "name": "test",
-      "description": "test deck",
-      "id": 4
-    },
-    {
-      "name": ",,,,,,",
-      "description": "jjjjjjj",
-      "id": 14
-    },
-    {
-      "name": "testing",
-      "description": ",,,",
-      "id": 15
+      "name": "New Deck",
+      "description": "New Deck Description",
+      "id": 16
     }
   ],
   "cards": [
@@ -58,58 +48,10 @@
       "id": 5
     },
     {
-      "front": "rgdf",
-      "back": "e2ccccccfd",
-      "deckId": 4,
-      "id": 8
-    },
-    {
-      "front": "ff",
-      "back": "dfdbf",
-      "deckId": 4,
-      "id": 9
-    },
-    {
-      "front": "kjhk",
-      "back": "jknjn",
-      "deckId": 4,
-      "id": 10
-    },
-    {
-      "front": "jnmbn",
-      "back": "nbm",
-      "deckId": 4,
-      "id": 11
-    },
-    {
-      "front": "new",
-      "back": "wefsdfd",
-      "deckId": 4,
-      "id": 12
-    },
-    {
-      "front": "fff",
-      "back": "ddd",
-      "deckId": 4,
-      "id": 14
-    },
-    {
-      "front": " bcbcv",
-      "back": "vbvbc",
-      "deckId": 14,
-      "id": 15
-    },
-    {
-      "front": ",.,",
-      "back": ",,,,,",
-      "deckId": 14,
-      "id": 16
-    },
-    {
-      "front": "(´꒳`) ,mbm",
-      "back": "      ,,,,,",
-      "deckId": 14,
-      "id": 17
+      "front": "New Card Front 3",
+      "back": "New Card Back 3",
+      "deckId": 16,
+      "id": 20
     }
   ]
 }
