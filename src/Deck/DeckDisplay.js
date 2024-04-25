@@ -7,20 +7,23 @@ function DeckDisplay({ deck, deleteHandler }) {
 
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
+          <ol className="breadcrumb" style={{ marginBottom: "none" }}>
             <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
+              <Link to="/" className="breadcrumb-link">
+                Home
+              </Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               {deck.name}
             </li>
           </ol>
         </nav>
+        <hr style={{ margin: 0, marginBottom: "2%" }} />
         <h2>{deck.name}</h2>
         <p>{deck.description}</p>
-        <div>
+        <div className="mt-4">
           <button
             type="button"
             className="btn btn-primary me-2"

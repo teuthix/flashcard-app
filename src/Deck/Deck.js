@@ -36,7 +36,7 @@ function Deck({ setDecks }) {
   }, [param]);
 
   return (
-    <>
+    <div className="mb-5">
       <DeckDisplay deck={deck} deleteHandler={deleteHandler} />
       {cards.length ? (
         <>
@@ -45,7 +45,7 @@ function Deck({ setDecks }) {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 }
 

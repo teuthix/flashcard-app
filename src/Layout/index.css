@@ -70,6 +70,11 @@ body {
     margin: 5%;
   }
 
+  .breadcrumb-link {
+    color: #526d3a;
+    text-decoration: none;
+  }
+
   @media all and (min-width: 800px) {
     body {
       background-color: #f8f2e8;
@@ -77,11 +82,24 @@ body {
 
     header {
       background-color: #ff6b42;
-      margin-bottom: 4%;
+      margin-bottom: 2%;
       padding: 3%;
       /* mb-4 p-5 */
     }
+
+    hr {
+      border-color: #ff6b42;
+      width: 80%;
+      border-width: 3px;
+      background-color: #ff6b42;
+      /* margin-bottom: 2%; */
+    }
     
+    nav a {
+      color: #526d3a;
+      text-decoration: none;
+    }
+
     .btn-primary {
       background-color: #739159;
       border: #739159;
@@ -111,13 +129,6 @@ body {
       border: #ff6b42;
     }
 
-    .item {
-      width: 50%;
-      padding-bottom: 32%;
-      margin-bottom: 2%;
-      position: relative;
-    }
-
     .container {
         display: flex;
         flex-wrap: wrap;
@@ -126,8 +137,8 @@ body {
     
     .item {
       width: 45%;
-      padding-bottom: 32%; /* Same as width, sets height */
-      margin-bottom: 2%; /* (100-32*3)/2 */
+      padding-bottom: 32%;
+      margin-bottom: 2%; 
       position: relative;
     }
 
@@ -159,8 +170,8 @@ body {
       color: #739159;
     }
 
-    /* doesnt work */
-    .breadcrumb-item, .active {
-      color: #739159;
+    .breadcrumb-link {
+      color: #526d3a;
+      text-decoration: none;
     }
   }
