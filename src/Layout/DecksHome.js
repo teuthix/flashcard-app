@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { deleteDeck } from "../utils/api";
+import { listDecks, deleteDeck } from "../utils/api";
 import "./index.css";
 
 function DecksHome({ decks, setDecks }) {
+  // fetches list of decks to be displayed
+  useEffect(() => {
+    async function fetchDecks() {
+      const response = await listDecks();
+      console.log("0000000000");
+      setDecks(response);
+    }
+    fetchDecks();
+  }, [setDecks]);
+
   // handles clicking delete, warning message pops up
   // sets deck to new array of decks with deleted id deck filtered out
   const handleClick = async (event) => {
@@ -24,7 +34,7 @@ function DecksHome({ decks, setDecks }) {
   //returns each deck as a card in this format
   const eachDeck = decks.map((deck) => {
     count++;
-    // if odd, 15 50, if even 50, 15
+    // if odd, radius 15 50, if even 50, 15
     if (count % 2) {
       // there is a remainder / count is odd
       cardStyle = "rcorners3";
@@ -32,6 +42,9 @@ function DecksHome({ decks, setDecks }) {
       cardStyle = "reversercorner";
     }
 
+    // let cardCount = await;
+
+    // console.log(deck);
     return (
       <div className={`card d-flex p-4 mb-4 item ${cardStyle}`} key={deck.id}>
         <div className="card-body">
