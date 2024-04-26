@@ -48,7 +48,7 @@ function DecksHome({ decks, setDecks }) {
     return (
       <div className={`card d-flex p-4 mb-4 item ${cardStyle}`} key={deck.id}>
         <div className="card-body">
-          <h5 className="card-title">{deck.name}</h5>
+          <h5 className="card-title josefin-sans-deck">{deck.name}</h5>
           <h6 className="card-subtitle">
             {deck.cards ? deck.cards.length : "0"} cards
           </h6>

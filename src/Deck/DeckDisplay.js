@@ -21,7 +21,7 @@ function DeckDisplay({ deck, deleteHandler }) {
           </ol>
         </nav>
         <hr style={{ margin: 0, marginBottom: "2%" }} />
-        <h2>{deck.name}</h2>
+        <h2 className="josefin-sans-deck">{deck.name}</h2>
         <p>{deck.description}</p>
         <div className="mt-4">
           <button

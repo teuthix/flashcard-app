@@ -52,7 +52,7 @@ function NewCard() {
             </li>
           </ol>
         </nav>
-        <h3>{deck.name}: Add Card</h3>
+        <h3 className="josefin-sans-deck">{deck.name}: Add Card</h3>
       </div>
       <CardForm
         formData={formData}

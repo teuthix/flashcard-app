@@ -6,7 +6,7 @@ function FormDeck({ formData, handleChange, submitHandler, deck = "" }) {
   return (
     <div className="card p-5 px-6 customForm allRoundCard">
       <form onSubmit={submitHandler} className="d-flex flex-column m-4">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor="name" className="form-label josefin-sans-deck">
           Name
         </label>
         <input
@@ -18,7 +18,7 @@ function FormDeck({ formData, handleChange, submitHandler, deck = "" }) {
           value={formData.name}
           onChange={handleChange}
         />
-        <label htmlFor="description" className="form-label">
+        <label htmlFor="description" className="form-label josefin-sans-deck">
           Description
         </label>
         <textarea

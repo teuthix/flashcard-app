@@ -54,7 +54,7 @@ function EditDeck() {
             </li>
           </ol>
         </nav>
-        <h2>Edit Deck</h2>
+        <h2 className="josefin-sans-deck">Edit Deck</h2>
       </div>
       <FormDeck
         formData={formData}

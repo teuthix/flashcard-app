@@ -16,7 +16,7 @@ function EnoughCards({ deck, numCard, setNumCard, numberOfCards }) {
     <div className="studyCard">
       <div className="card p-5 allRoundCard">
         {
-          <h3>
+          <h3 className="josefin-sans-deck">
             Card {numCard + 1} of {numberOfCards}
           </h3>
         }

@@ -8,7 +8,7 @@ function CardForm({ formData, handleChange, handleSubmit }) {
   return (
     <div className="card p-5 px-6 customForm allRoundCard">
       <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
-        <label htmlFor="front" className="form-label">
+        <label htmlFor="front" className="form-label josefin-sans-deck">
           Front
         </label>
         <textarea
@@ -19,7 +19,7 @@ function CardForm({ formData, handleChange, handleSubmit }) {
           value={formData.front}
           onChange={handleChange}
         />
-        <label htmlFor="back" className="form-label">
+        <label htmlFor="back" className="form-label josefin-sans-deck">
           Back
         </label>
         <textarea

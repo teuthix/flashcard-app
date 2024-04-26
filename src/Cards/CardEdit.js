@@ -59,7 +59,7 @@ function CardEdit() {
             </li>
           </ol>
         </nav>
-        <h4>Edit Card</h4>
+        <h4 className="josefin-sans-deck">Edit Card</h4>
       </div>
       <CardForm
         formData={formData}

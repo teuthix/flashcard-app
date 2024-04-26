@@ -37,7 +37,7 @@ function Study() {
             </li>
           </ol>
         </nav>
-        <h2>Study: {deck.name}</h2>
+        <h2 className="josefin-sans-deck">Study: {deck.name}</h2>
       </div>
       {numberOfCards < 3 ? (
         <NotEnough numberOfCards={numberOfCards} />

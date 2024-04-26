@@ -46,12 +46,6 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
-    },
-    {
-      "front": "New Card Front 3",
-      "back": "New Card Back 3",
-      "deckId": 16,
-      "id": 20
     }
   ]
 }

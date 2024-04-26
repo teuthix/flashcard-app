@@ -39,7 +39,7 @@ function NewDeck() {
             </li>
           </ol>
         </nav>
-        <h2>Create Deck</h2>
+        <h2 className="josefin-sans-deck">Create Deck</h2>
       </div>
       <FormDeck
         formData={formData}
