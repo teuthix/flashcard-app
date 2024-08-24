@@ -8,7 +8,6 @@ function DecksHome({ decks, setDecks }) {
   useEffect(() => {
     async function fetchDecks() {
       const response = await listDecks();
-      console.log("0000000000");
       setDecks(response);
     }
     fetchDecks();

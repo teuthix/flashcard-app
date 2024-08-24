@@ -33,7 +33,7 @@ function CardList({ cards, deckId, setCards }) {
     }
 
     return (
-      <div className={`card d-flex p-4 mb-3 item ${cardStyle}`} key={index}>
+      <div className={`card d-flex p-3 mb-3 item ${cardStyle}`} key={index}>
         <div className="p-3">
           <div>{eaCard.front}</div>
           <hr />
