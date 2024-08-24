@@ -56,8 +56,8 @@ body {
 }
 
 .customForm  {
-  width: 90%;
-  margin: 0 auto;
+  padding: 1rem;
+  margin: 0 2rem 4rem;
 }
 
 /* .allRoundCard{

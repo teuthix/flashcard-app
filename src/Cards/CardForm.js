@@ -6,7 +6,7 @@ function CardForm({ formData, handleChange, handleSubmit }) {
   const { deckId, cardId } = params;
 
   return (
-    <div className="card p-5 px-6 customForm allRoundCard">
+    <div className="card customForm allRoundCard">
       <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
         <label htmlFor="front" className="form-label josefin-sans-deck">
           Front
