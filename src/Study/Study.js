@@ -23,7 +23,7 @@ function Study() {
   //returns the breadcrumb nav and whichever function depending on if there are <= 3 cards
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -37,7 +37,7 @@ function Study() {
             </li>
           </ol>
         </nav>
-        <h2 className="josefin-sans-deck">Study: {deck.name}</h2>
+        <h3 className="josefin-sans-deck">Study: {deck.name}</h3>
       </div>
       {numberOfCards < 3 ? (
         <NotEnough numberOfCards={numberOfCards} />
