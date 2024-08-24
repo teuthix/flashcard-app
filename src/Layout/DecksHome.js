@@ -42,9 +42,6 @@ function DecksHome({ decks, setDecks }) {
       cardStyle = "reversercorner";
     }
 
-    // let cardCount = await;
-
-    // console.log(deck);
     return (
       <div className={`card d-flex p-4 mb-4 item ${cardStyle}`} key={deck.id}>
         <div className="card-body">

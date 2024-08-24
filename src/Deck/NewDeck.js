@@ -22,7 +22,6 @@ function NewDeck() {
   const submitHandler = async (event) => {
     event.preventDefault();
     let newDeck = await createDeck(formData);
-    // console.log(newDeck);
     history.push(`/decks/${newDeck.id}`);
   };
 

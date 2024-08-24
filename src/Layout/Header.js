@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="d-flex">
       <div className="container">
-        <div className=" text-white">
+        <div className="text-white">
           <Link to="/" className="link-light link-underline-opacity-0">
             <h1 className="display-4 josefin-sans-title">Flashcard-o-matic</h1>
           </Link>

@@ -20,7 +20,7 @@ body {
 
 .btn-secondary {
   background-color: #f8f2e8;
-  color: #739159;
+  color: #526d3a;
   border-color: #f8f2e8;
 }
 
@@ -32,7 +32,7 @@ body {
 .rcorners3, .reversercorner {
   border-radius: 50px;
   border-color: #526d3a;
-  border-width: 4px;
+  border-width: .8rem;
 }
 
 .customForm  {
@@ -49,7 +49,6 @@ body {
 
 .border-thick {
     border-width: 40px;
-
 }
 
 .container {
@@ -101,7 +100,6 @@ body {
       background-color: #ff6b42;
       margin-bottom: 2%;
       padding: 3%;
-      /* mb-4 p-5 */
     }
 
     hr {
@@ -109,7 +107,6 @@ body {
       width: 80%;
       border-width: 3px;
       background-color: #ff6b42;
-      /* margin-bottom: 2%; */
     }
     
     nav a {
