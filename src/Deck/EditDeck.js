@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { updateDeck, readDeck } from "../utils/api";
 import FormDeck from "./FormDeck";
 import Breadcrumb from "../Layout/Breadcrumb";
@@ -41,16 +41,17 @@ function EditDeck() {
 
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <Breadcrumb deck={deck} type="editDeck" />
         <h3 className="josefin-sans-deck">Edit: {deck.name}</h3>
+
+        <FormDeck
+          formData={formData}
+          handleChange={handleChange}
+          submitHandler={submitHandler}
+          deck={formData}
+        />
       </div>
-      <FormDeck
-        formData={formData}
-        handleChange={handleChange}
-        submitHandler={submitHandler}
-        deck={formData}
-      />
     </>
   );
 }

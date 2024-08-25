@@ -14,6 +14,11 @@
       "name": "New Deck name",
       "description": "New Deck Description this is a sample description for a sample deck",
       "id": 16
+    },
+    {
+      "name": "second test deck",
+      "description": "check everything is normal",
+      "id": 17
     }
   ],
   "cards": [
@@ -52,6 +57,12 @@
       "back": "est",
       "deckId": 16,
       "id": 6
+    },
+    {
+      "front": "test",
+      "back": "tewefsdgsf",
+      "deckId": 17,
+      "id": 7
     }
   ]
 }

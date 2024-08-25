@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 import CardForm from "./CardForm";
 import Breadcrumb from "../Layout/Breadcrumb";
@@ -39,15 +39,15 @@ function NewCard() {
   // return a breadcrumb nav and a form
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <Breadcrumb deck={deck} type="newCard" />
         <h3 className="josefin-sans-deck">{deck.name}: Add Card</h3>
+        <CardForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
       </div>
-      <CardForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
     </>
   );
 }

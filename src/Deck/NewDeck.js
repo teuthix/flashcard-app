@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api";
 import FormDeck from "./FormDeck";
 import Breadcrumb from "../Layout/Breadcrumb";
@@ -26,19 +26,17 @@ function NewDeck() {
     history.push(`/decks/${newDeck.id}`);
   };
 
-  // let deck = 1;
-
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <Breadcrumb type="newDeck" />
-        <h2 className="josefin-sans-deck">Create Deck</h2>
+        <h3 className="josefin-sans-deck">Create Deck</h3>
+        <FormDeck
+          formData={formData}
+          handleChange={handleChange}
+          submitHandler={submitHandler}
+        />
       </div>
-      <FormDeck
-        formData={formData}
-        handleChange={handleChange}
-        submitHandler={submitHandler}
-      />
     </>
   );
 }

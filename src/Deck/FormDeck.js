@@ -5,7 +5,7 @@ import "../Layout/index.css";
 function FormDeck({ formData, handleChange, submitHandler, deck = "" }) {
   return (
     <div className="card customForm allRoundCard">
-      <form onSubmit={submitHandler} className="d-flex flex-column m-4">
+      <form onSubmit={submitHandler} className="d-flex flex-column">
         <label htmlFor="name" className="form-label josefin-sans-deck">
           Name
         </label>

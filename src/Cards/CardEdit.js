@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { readDeck, readCard, updateCard } from "../utils/api";
 import CardForm from "./CardForm";
 import Breadcrumb from "../Layout/Breadcrumb";
@@ -46,15 +46,16 @@ function CardEdit() {
 
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center m-4">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <Breadcrumb deck={deck} type="editCard" />
         <h3 className="josefin-sans-deck">Edit Card</h3>
+
+        <CardForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
       </div>
-      <CardForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
     </>
   );
 }

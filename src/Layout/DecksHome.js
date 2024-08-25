@@ -42,7 +42,7 @@ function DecksHome({ decks, setDecks }) {
     }
 
     return (
-      <div className={`card d-flex p-4 mb-4 item ${cardStyle}`} key={deck.id}>
+      <div className={`card d-flex p-4 mb-5 item ${cardStyle}`} key={deck.id}>
         <div className="card-body">
           <h5 className="card-title josefin-sans-deck">{deck.name}</h5>
           <h6 className="card-subtitle">
@@ -77,7 +77,7 @@ function DecksHome({ decks, setDecks }) {
   });
 
   return (
-    <div className="d-flex flex-row">
+    <div className="d-flex flex-row deckList">
       <div className="container">{eachDeck}</div>
     </div>
   );

@@ -7,7 +7,7 @@ function CardForm({ formData, handleChange, handleSubmit }) {
 
   return (
     <div className="card customForm allRoundCard">
-      <form onSubmit={handleSubmit} className="d-flex flex-column m-4">
+      <form onSubmit={handleSubmit} className="d-flex flex-column">
         <label htmlFor="front" className="form-label josefin-sans-deck">
           Front
         </label>

@@ -28,6 +28,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.btn {
+  margin-top: .5rem;
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:active {
   background-color: #739159;
   border: #739159;
@@ -36,6 +40,7 @@ body {
 .btn-danger {
   background-color: #ff6b42;
   border: #ff6b42;
+  height: 2.4rem;
 }
 
 .btn-secondary {
@@ -56,20 +61,11 @@ body {
 }
 
 .customForm  {
-  padding: 1rem;
+  padding: 2rem;
   margin: 0 2rem 4rem;
+  min-width: 20rem;
+  /* max-width: 40rem; */
 }
-
-/* .allRoundCard{
-  border-radius: 2rem;
-  border-color: #526d3a;
-  border-width: 4px;
-  margin: .5rem;
-} */
-
-/* .border-thick {
-    border-width: 40px;
-} */
 
 .container {
     display: flex;
@@ -87,7 +83,7 @@ body {
   /* title of pages */
 h3 {
   font-size: 1.8rem;
-  margin: 0 3rem 0;
+  margin: 0 3rem 1rem;
 }
 
 h4 {
@@ -120,7 +116,7 @@ h4 {
     text-decoration: none;
   }
 
-  @media all and (min-width: 800px) {
+  @media all and (min-width: 48rem) {
     /* // <uniquifier>: Use a unique and descriptive class name
     // <weight>: Use a value from 100 to 700 */
     
@@ -130,8 +126,16 @@ h4 {
 
     header {
       background-color: #ff6b42;
-      margin-bottom: 2%;
-      padding: 3%;
+      margin-bottom: 1.2rem;
+      padding: 3rem auto 2rem;
+    }
+
+    .josefin-sans-title {
+      font-size: 4rem;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
     }
 
     hr {
@@ -188,16 +192,25 @@ h4 {
       position: relative;
     }
 
+    h3 {
+      margin-bottom: 2rem;
+    }
+
+    .deckList {
+      margin: 2.5rem 3rem;
+    }
+
     .customForm  {
-      width: 50%;
-      margin: 0 auto;
-      padding: 5%;
+      /* width: 50%; */
+      width: 48rem;
+      margin: 0 5rem;
+      padding: 2.8rem;
     }
 
     .allRoundCard {
       border-radius: 50px;
       border-color: #526d3a;
-      border-width: 4px;
+      border-width: 1rem;
     }
 
     .studyCard {
@@ -205,16 +218,17 @@ h4 {
       margin: 0 auto;
     }
 
-    .rcorners3 {
-      border-radius: 15px 50px;
+    .rcorners3, .reversecorner {
+      border-radius: 1rem 5rem;
       border-color: #526d3a;
-      border-width: 4px;
+      border-width: 1rem;
     }
 
     .reversercorner {
-      border-radius: 50px 15px ;
+      border-radius: 5rem 1rem ;
       border-color: #526d3a;
-      border-width: 4px;
+      border-width: 1rem;
+      margin-top: 0;
     }
 
     .breadcrumb-link {
