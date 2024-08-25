@@ -10,7 +10,6 @@ function DeckDisplay({ deck, deleteHandler }) {
     <>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <Breadcrumb deck={deck} type="deck" />
-        <hr style={{ margin: 0, marginBottom: "2%" }} />
         <h3 className="josefin-sans-deck">{deck.name}</h3>
         <p className="deck-description">{deck.description}</p>
         <div className="mt-4">

@@ -28,10 +28,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-ol {
-  text-decoration: none;
-}
-
 .btn-primary, .btn-primary:hover, .btn-primary:active {
   background-color: #739159;
   border: #739159;
@@ -88,9 +84,10 @@ ol {
   position: relative;
 }
 
-  /* title of decks */
+  /* title of pages */
 h3 {
   font-size: 1.8rem;
+  margin: 0 3rem 0;
 }
 
 h4 {
@@ -98,7 +95,7 @@ h4 {
 }
 
 .deck-description {
-  margin: auto 2.2rem;
+  margin: 1rem 2.2rem 0;
 }
 
 .card-title {

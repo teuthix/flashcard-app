@@ -43,7 +43,7 @@ function EditDeck() {
     <>
       <div className="d-flex flex-column justify-content-center align-items-center m-4">
         <Breadcrumb deck={deck} type="editDeck" />
-        <h2 className="josefin-sans-deck">Edit: {deck.name}</h2>
+        <h3 className="josefin-sans-deck">Edit: {deck.name}</h3>
       </div>
       <FormDeck
         formData={formData}

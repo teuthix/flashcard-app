@@ -48,7 +48,7 @@ function CardEdit() {
     <>
       <div className="d-flex flex-column justify-content-center align-items-center m-4">
         <Breadcrumb deck={deck} type="editCard" />
-        <h4 className="josefin-sans-deck">Edit Card</h4>
+        <h3 className="josefin-sans-deck">Edit Card</h3>
       </div>
       <CardForm
         formData={formData}
