@@ -3,6 +3,7 @@ import { readDeck } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import EnoughCards from "./EnoughCards";
 import NotEnough from "./NotEnough";
+import Breadcrumb from "../Layout/Breadcrumb";
 
 function Study() {
   const param = useParams().deckId;
@@ -24,19 +25,7 @@ function Study() {
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Study
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumb deck={deck} type="study" />
         <h3 className="josefin-sans-deck">Study: {deck.name}</h3>
       </div>
       {numberOfCards < 3 ? (

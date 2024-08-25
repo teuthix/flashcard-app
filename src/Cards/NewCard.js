@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { readDeck, createCard } from "../utils/api";
 import CardForm from "./CardForm";
+import Breadcrumb from "../Layout/Breadcrumb";
 
 function NewCard() {
   //initial state of the form is a blank card
@@ -39,19 +40,7 @@ function NewCard() {
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center m-4">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Add Card
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumb deck={deck} type="newCard" />
         <h3 className="josefin-sans-deck">{deck.name}: Add Card</h3>
       </div>
       <CardForm

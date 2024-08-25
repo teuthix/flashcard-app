@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { updateDeck, readDeck } from "../utils/api";
 import FormDeck from "./FormDeck";
+import Breadcrumb from "../Layout/Breadcrumb";
 
 function EditDeck() {
   const param = useParams().deckId;
@@ -41,20 +42,8 @@ function EditDeck() {
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center m-4">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Edit Deck
-            </li>
-          </ol>
-        </nav>
-        <h2 className="josefin-sans-deck">Edit Deck</h2>
+        <Breadcrumb deck={deck} type="editDeck" />
+        <h2 className="josefin-sans-deck">Edit: {deck.name}</h2>
       </div>
       <FormDeck
         formData={formData}

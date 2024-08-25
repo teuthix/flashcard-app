@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import Breadcrumb from "../Layout/Breadcrumb";
 
 function DeckDisplay({ deck, deleteHandler }) {
   // html for /decks/:deckId
@@ -8,18 +9,7 @@ function DeckDisplay({ deck, deleteHandler }) {
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb" style={{ marginBottom: "none" }}>
-            <li className="breadcrumb-item">
-              <Link to="/" className="breadcrumb-link">
-                Home
-              </Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              {deck.name}
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumb deck={deck} type="deck" />
         <hr style={{ margin: 0, marginBottom: "2%" }} />
         <h3 className="josefin-sans-deck">{deck.name}</h3>
         <p className="deck-description">{deck.description}</p>

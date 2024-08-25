@@ -28,6 +28,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
+ol {
+  text-decoration: none;
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:active {
   background-color: #739159;
   border: #739159;
