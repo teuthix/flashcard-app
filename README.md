@@ -31,14 +31,11 @@ This project was originally designed to test:
 
 ### Home
 
-![](images/home-with-new-deck.png)
+![](images/desktop-home.png) ![](images/mobile.png)
 
 - `Create Deck` button links to /decks/new where there is a form for the Name and Description the deck to be created.
 - `View` button links to /decks/:deckId, where the deck's cards are visible
 - `Study` button links to /decks/:deckId/study, where the front of each card will be shown and can be flipped to show the back. Go through each card and a pop up will give the option to start over or return to the previous page
-
-  ![](images/delete-deck-pop-up.png)
-
 - `Delete` button will delete the deck. A pop up will be triggered to confirm the user wishes to delete the deck.
 
 ### Study
@@ -49,13 +46,7 @@ This project was originally designed to test:
 - The name of the deck
 - The top of the card shows what number card the user is on out of total number of cards.
 - The front of the first card will be shown. The flip button will show the back of that card and Next button will advance to the next card.
-
-![](images/study-pop-up.png)
-
 - When the next button is clicked on the last card, a pop up will appear asking if the user wants to restart studying the deck or to return to the previous page.
-
-![](images/not-enough-study.png)
-
 - If there are not enough cards (less than 3), the page will inform the user that there needs to be more cards in the deck and how many cards are currently in the deck.
 
 ### Create Deck
@@ -80,9 +71,6 @@ This project was originally designed to test:
 - The `Delete` button deletes the deck and returns the user to the Home page
 - All the cards in the deck are displayed along with an edit and delete button
 - Each card's `Edit` button leads to /decks/:deckId/cards/:cardId/edit and allows the user to edit the front and back of the selected card
-
-  ![](images/delete-card-pop-up.png)
-
 - Each card's `Delete` button will delete the card from the deck. A pop up will appear asking the user to confirm.
 
 ### Edit Deck
@@ -98,8 +86,6 @@ This project was originally designed to test:
 
 ### Add Card
 
-![](images/add-card.png)
-
 - A breadcrumb navigation bar allows the user to access the home page, the deck the card is being added to, and displays the text "Add Card"
 - A form for the user to enter the text Front and Back side of the card
 - Shares a form component with Edit Card
@@ -107,8 +93,6 @@ This project was originally designed to test:
 - The `Save` button adds the card to the deck and clears the contents of the form
 
 ### Edit Card
-
-![](images/edit-card.png)
 
 - A breadcrumb navigation bar allows the user to access the home page, the deck the card belongs to, and displays "Edit Card" along with the card's id
 - A form for the user to edit the text Front and Back side of the card
